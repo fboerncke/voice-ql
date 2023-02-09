@@ -1,0 +1,1140 @@
+{
+  "invocation": {
+    "alexa": "define this value in file jovo.project.ts",
+    "googleAssistant": "define this value in file jovo.project.ts"
+  },
+  "version": "4.0",
+  "intents": {
+    "WelcomeIntent": {
+      "phrases": [
+        "welcome"
+      ]
+    },
+    "NameOfAllTablesIntent": {
+      "phrases": [
+        "Name the table names",
+        "Name the tables",
+        "What are the names of the tables"
+      ]
+    },
+    "SwitchToTableIntent": {
+      "phrases": [
+        "choose table labelled {tableName}",
+        "choose table named {tableName}",
+        "choose table with the name {tableName}",
+        "choose table {tableName}",
+        "choose the table labelled {tableName}",
+        "choose the table named {tableName}",
+        "choose the table with the name {tableName}",
+        "choose the table {tableName}",
+        "select table labelled {tableName}",
+        "select table named {tableName}",
+        "select table with the name {tableName}",
+        "select table {tableName}",
+        "select the table labelled {tableName}",
+        "select the table named {tableName}",
+        "select the table with the name {tableName}",
+        "select the table {tableName}",
+        "switch to table labelled {tableName}",
+        "switch to table named {tableName}",
+        "switch to table with the name {tableName}",
+        "switch to table {tableName}",
+        "switch to the table labelled {tableName}",
+        "switch to the table named {tableName}",
+        "switch to the table with the name {tableName}",
+        "switch to the table {tableName}",
+        "{tableName}"
+      ],
+      "entities": {
+        "tableName": {
+          "type": "TableNameType"
+        }
+      }
+    },
+    "AskCurrentTableNameIntent": {
+      "phrases": [
+        "Current table",
+        "Tell me the name of the current table",
+        "Tell me the name of the currently selected table",
+        "Tell me the name of the table",
+        "What is the name of the current table",
+        "What is the name of the currently selected table",
+        "What is the name of the table",
+        "whats the name of the current table",
+        "whats the name of the currently selected table",
+        "whats the name of the table"
+      ]
+    },
+    "MetadataReportIntent": {
+      "phrases": [
+        "Metadata",
+        "Tell me something about you",
+        "What are your properties",
+        "describe"
+      ]
+    },
+    "CurrentStatusReportIntent": {
+      "phrases": [
+        "briefing",
+        "current status",
+        "flash briefing",
+        "status"
+      ]
+    },
+    "HowManyColumnsIntent": {
+      "phrases": [
+        "How many columns",
+        "How many columns do you have",
+        "count columns",
+        "count number columns",
+        "count number of columns",
+        "count the number columns",
+        "count the number of columns",
+        "number columns",
+        "number of columns",
+        "the number columns",
+        "the number of columns"
+      ],
+      "entities": {
+        "tableName": {
+          "type": "TableNameType"
+        }
+      }
+    },
+    "HowManyRowsWithConditionIntent": {
+      "phrases": [
+        "How many lines",
+        "How many lines do you have",
+        "How many lines does this table have",
+        "How many rows",
+        "How many rows do you have",
+        "How many rows does this table have",
+        "count lines",
+        "count rows",
+        "count star",
+        "count the lines",
+        "count the rows",
+        "count the star",
+        "how many rows with filter {filterColumnName} {comparator} {integerNumber}",
+        "how many rows with filter {filterColumnName} {comparator} {someString}"
+      ],
+      "entities": {
+        "tableName": {
+          "type": "TableNameType"
+        },
+        "filterColumnName": {
+          "type": "ColumnNameType"
+        },
+        "rowSynonym": {
+          "type": "RowSynonymType"
+        },
+        "comparator": {
+          "type": "ComparatorType"
+        },
+        "integerNumber": {
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "googleAssistant": "actions.type.Number",
+            "nlpjs": "IntegerNumberType",
+            "snips": "snips/number"
+          }
+        },
+        "someString": {
+          "type": {
+            "alexa": "FreeTextType",
+            "googleAssistant": "actions.type.FreeText",
+            "nlpjs": "FreeTextType",
+            "snips": "FreeTextType"
+          }
+        }
+      }
+    },
+    "NameOfAllColumnsIntent": {
+      "phrases": [
+        "Name columns",
+        "Name columns from table {tableName}",
+        "Name the columns",
+        "Name the columns from table {tableName}",
+        "What are the names of the columns",
+        "What are the names of the columns from table {tableName}",
+        "column names"
+      ],
+      "entities": {
+        "tableName": {
+          "type": "TableNameType"
+        }
+      }
+    },
+    "NameOfSpecificColumnIntent": {
+      "phrases": [
+        "What is the name of column with number {integerNumber}",
+        "What is the name of column {integerNumber}",
+        "What is the name of the column with number {integerNumber}",
+        "What is the name of the column {integerNumber}",
+        "What is the name of the {integerNumber} column",
+        "What is the name of {integerNumber} column",
+        "name of column {integerNumber}"
+      ],
+      "entities": {
+        "integerNumber": {
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "googleAssistant": "actions.type.Number",
+            "nlpjs": "IntegerNumberType",
+            "snips": "snips/number"
+          }
+        }
+      }
+    },
+    "ReadCurrentRowIntent": {
+      "phrases": [
+        "Read current {rowSynonym}",
+        "Read the current {rowSynonym}",
+        "Read the {rowSynonym}",
+        "Read {rowSynonym}",
+        "SELECT current {rowSynonym}",
+        "SELECT {rowSynonym}",
+        "what is content of current {rowSynonym}",
+        "what is content of {rowSynonym}",
+        "what is current {rowSynonym}",
+        "what is the content of current {rowSynonym}",
+        "what is the content of {rowSynonym}",
+        "what is the current {rowSynonym}",
+        "what is the {rowSynonym}",
+        "what is {rowSynonym}"
+      ],
+      "entities": {
+        "rowSynonym": {
+          "type": "RowSynonymType"
+        }
+      }
+    },
+    "FirstRowIntent": {
+      "phrases": [
+        "Read first line",
+        "Read first row",
+        "first line",
+        "first row",
+        "goto first line",
+        "goto first row",
+        "jump to first line",
+        "jump to first row",
+        "what is content of the first line",
+        "what is content of the first row",
+        "what is the content of the first line",
+        "what is the content of the first row",
+        "what is the first line",
+        "what is the first row",
+        "what is the the first line",
+        "what is the the first row"
+      ]
+    },
+    "NextRowIntent": {
+      "phrases": [
+        "Read next line",
+        "Read next row",
+        "goto next line",
+        "goto next row",
+        "jump to next line",
+        "jump to next row",
+        "next line",
+        "next row",
+        "what is content of the next line",
+        "what is content of the next row",
+        "what is the content of the next line",
+        "what is the content of the next row",
+        "what is the next line",
+        "what is the next row",
+        "what is the the next line",
+        "what is the the next row"
+      ]
+    },
+    "PreviousRowIntent": {
+      "phrases": [
+        "Read previous line",
+        "Read previous row",
+        "goto previous line",
+        "goto previous row",
+        "jump to previous line",
+        "jump to previous row",
+        "previous line",
+        "previous row",
+        "what is content of the previous line",
+        "what is content of the previous row",
+        "what is the content of the previous line",
+        "what is the content of the previous row",
+        "what is the previous line",
+        "what is the previous row",
+        "what is the the previous line",
+        "what is the the previous row"
+      ]
+    },
+    "LastRowIntent": {
+      "phrases": [
+        "Read last line",
+        "Read last row",
+        "goto last line",
+        "goto last row",
+        "jump to last line",
+        "jump to last row",
+        "last line",
+        "last row",
+        "what is content of the last line",
+        "what is content of the last row",
+        "what is the content of the last line",
+        "what is the content of the last row",
+        "what is the last line",
+        "what is the last row",
+        "what is the the last line",
+        "what is the the last row"
+      ]
+    },
+    "GotoRowIntent": {
+      "phrases": [
+        "goto line {integerNumber}",
+        "goto row {integerNumber}",
+        "jump to line {integerNumber}",
+        "jump to row {integerNumber}",
+        "line {integerNumber}",
+        "read line {integerNumber}",
+        "read row {integerNumber}",
+        "row {integerNumber}",
+        "what is content of line {integerNumber}",
+        "what is content of row {integerNumber}",
+        "what is line {integerNumber}",
+        "what is row {integerNumber}",
+        "what is the content of line {integerNumber}",
+        "what is the content of row {integerNumber}",
+        "what is the line {integerNumber}",
+        "what is the row {integerNumber}"
+      ],
+      "entities": {
+        "integerNumber": {
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "googleAssistant": "actions.type.Number",
+            "nlpjs": "IntegerNumberType",
+            "snips": "snips/number"
+          }
+        }
+      }
+    },
+    "SortByColumnIntent": {
+      "phrases": [
+        "Sort by column {columnName}",
+        "Sort by column {columnName} {sortOrder}",
+        "Sort by {columnName}",
+        "Sort by {columnName} {sortOrder}",
+        "order by column {columnName}",
+        "order by column {columnName} {sortOrder}",
+        "order by {columnName}",
+        "order by {columnName} {sortOrder}"
+      ],
+      "entities": {
+        "columnName": {
+          "type": "ColumnNameType"
+        },
+        "sortOrder": {
+          "type": "SortOrderType"
+        }
+      }
+    },
+    "SortOrderIntent": {
+      "phrases": [
+        "order by {sortOrder}",
+        "order {sortOrder}",
+        "sort {sortOrder}"
+      ],
+      "entities": {
+        "sortOrder": {
+          "type": "SortOrderType"
+        }
+      }
+    },
+    "BiggestValueInColumnIntent": {
+      "phrases": [
+        "What is the biggest value in column {columnName}",
+        "What is the biggest value in the column {columnName}",
+        "What is the biggest value in the {columnName}",
+        "What is the biggest value in {columnName}",
+        "What is the highest value in column {columnName}",
+        "What is the highest value in the column {columnName}",
+        "What is the highest value in the {columnName}",
+        "What is the highest value in {columnName}",
+        "What is the maximal value in column {columnName}",
+        "What is the maximal value in the column {columnName}",
+        "What is the maximal value in the {columnName}",
+        "What is the maximal value in {columnName}",
+        "What is the maximum value in column {columnName}",
+        "What is the maximum value in the column {columnName}",
+        "What is the maximum value in the {columnName}",
+        "What is the maximum value in {columnName}",
+        "biggest value column {columnName}",
+        "biggest value in column {columnName}",
+        "biggest value in the column {columnName}",
+        "biggest value in the {columnName}",
+        "biggest value in {columnName}",
+        "biggest value the column {columnName}",
+        "biggest value the {columnName}",
+        "biggest value {columnName}",
+        "highest value column {columnName}",
+        "highest value in column {columnName}",
+        "highest value in the column {columnName}",
+        "highest value in the {columnName}",
+        "highest value in {columnName}",
+        "highest value the column {columnName}",
+        "highest value the {columnName}",
+        "highest value {columnName}",
+        "maximal value column {columnName}",
+        "maximal value in column {columnName}",
+        "maximal value in the column {columnName}",
+        "maximal value in the {columnName}",
+        "maximal value in {columnName}",
+        "maximal value the column {columnName}",
+        "maximal value the {columnName}",
+        "maximal value {columnName}",
+        "maximum value column {columnName}",
+        "maximum value in column {columnName}",
+        "maximum value in the column {columnName}",
+        "maximum value in the {columnName}",
+        "maximum value in {columnName}",
+        "maximum value the column {columnName}",
+        "maximum value the {columnName}",
+        "maximum value {columnName}"
+      ],
+      "entities": {
+        "columnName": {
+          "type": "ColumnNameType"
+        }
+      }
+    },
+    "SmallestValueInColumnIntent": {
+      "phrases": [
+        "What is the lowest value in column {columnName}",
+        "What is the lowest value in {columnName}",
+        "What is the minimal value in column {columnName}",
+        "What is the minimal value in {columnName}",
+        "What is the minimum value in column {columnName}",
+        "What is the minimum value in {columnName}",
+        "What is the smallest value in column {columnName}",
+        "What is the smallest value in {columnName}",
+        "lowest value column {columnName}",
+        "lowest value in column {columnName}",
+        "lowest value in {columnName}",
+        "lowest value {columnName}",
+        "minimal value column {columnName}",
+        "minimal value in column {columnName}",
+        "minimal value in {columnName}",
+        "minimal value {columnName}",
+        "minimum value column {columnName}",
+        "minimum value in column {columnName}",
+        "minimum value in {columnName}",
+        "minimum value {columnName}",
+        "smallest value column {columnName}",
+        "smallest value in column {columnName}",
+        "smallest value in {columnName}",
+        "smallest value {columnName}"
+      ],
+      "entities": {
+        "columnName": {
+          "type": "ColumnNameType"
+        }
+      }
+    },
+    "AverageValueInColumnIntent": {
+      "phrases": [
+        "What is the average value in column {columnName}",
+        "What is the average value in {columnName}",
+        "average value column {columnName}",
+        "average value in column {columnName}",
+        "average value in {columnName}",
+        "average value {columnName}"
+      ],
+      "entities": {
+        "columnName": {
+          "type": "ColumnNameType"
+        }
+      }
+    },
+    "SumOfValueInColumnIntent": {
+      "phrases": [
+        "What is the sum in column {columnName}",
+        "What is the sum in {columnName}",
+        "What is the sum value in column {columnName}",
+        "What is the sum value in {columnName}",
+        "sum value column {columnName}",
+        "sum value in column {columnName}",
+        "sum value in {columnName}",
+        "sum value {columnName}"
+      ],
+      "entities": {
+        "columnName": {
+          "type": "ColumnNameType"
+        }
+      }
+    },
+    "NumberOfDistinctValuesInColumnIntent": {
+      "phrases": [
+        "How many different values are there in column {columnName}",
+        "How many different values are there in {columnName}",
+        "How many distinct values are there in column {columnName}",
+        "How many distinct values are there in {columnName}",
+        "Number of different values column {columnName}",
+        "Number of different values in column {columnName}",
+        "Number of different values in {columnName}",
+        "Number of different values {columnName}",
+        "Number of distinct values column {columnName}",
+        "Number of distinct values in column {columnName}",
+        "Number of distinct values in {columnName}",
+        "Number of distinct values {columnName}"
+      ],
+      "entities": {
+        "columnName": {
+          "type": "ColumnNameType"
+        }
+      }
+    },
+    "SelectStatementIntent": {
+      "phrases": [
+        "{selectSynonym} all {rowSynonym} WHERE column {filterColumnName} {comparator} {integerNumber}",
+        "{selectSynonym} all {rowSynonym} WHERE column {filterColumnName} {comparator} {someString}",
+        "{selectSynonym} all {rowSynonym} WHERE the value of column {filterColumnName} {comparator} {integerNumber}",
+        "{selectSynonym} all {rowSynonym} WHERE the value of column {filterColumnName} {comparator} {someString}",
+        "{selectSynonym} all {rowSynonym} WHERE the value of {filterColumnName} {comparator} {integerNumber}",
+        "{selectSynonym} all {rowSynonym} WHERE the value of {filterColumnName} {comparator} {someString}",
+        "{selectSynonym} all {rowSynonym} WHERE {filterColumnName} {comparator} {integerNumber}",
+        "{selectSynonym} all {rowSynonym} WHERE {filterColumnName} {comparator} {someString}",
+        "{selectSynonym} column {filterColumnName} {comparator} {integerNumber}",
+        "{selectSynonym} column {filterColumnName} {comparator} {someString}",
+        "{selectSynonym} the value of column {filterColumnName} {comparator} {integerNumber}",
+        "{selectSynonym} the value of column {filterColumnName} {comparator} {someString}",
+        "{selectSynonym} the value of {filterColumnName} {comparator} {integerNumber}",
+        "{selectSynonym} the value of {filterColumnName} {comparator} {someString}",
+        "{selectSynonym} {filterColumnName} {comparator} {integerNumber}",
+        "{selectSynonym} {filterColumnName} {comparator} {someString}",
+        "{selectSynonym} {rowSynonym} WHERE column {filterColumnName} {comparator} {integerNumber}",
+        "{selectSynonym} {rowSynonym} WHERE column {filterColumnName} {comparator} {someString}",
+        "{selectSynonym} {rowSynonym} WHERE the value of column {filterColumnName} {comparator} {integerNumber}",
+        "{selectSynonym} {rowSynonym} WHERE the value of column {filterColumnName} {comparator} {someString}",
+        "{selectSynonym} {rowSynonym} WHERE the value of {filterColumnName} {comparator} {integerNumber}",
+        "{selectSynonym} {rowSynonym} WHERE the value of {filterColumnName} {comparator} {someString}",
+        "{selectSynonym} {rowSynonym} WHERE {filterColumnName} {comparator} {integerNumber}",
+        "{selectSynonym} {rowSynonym} WHERE {filterColumnName} {comparator} {someString}"
+      ],
+      "entities": {
+        "selectSynonym": {
+          "type": "SelectSynonymType"
+        },
+        "rowSynonym": {
+          "type": "RowSynonymType"
+        },
+        "projectionColumnName": {
+          "type": "ColumnNameType"
+        },
+        "tableName": {
+          "type": "TableNameType"
+        },
+        "filterColumnName": {
+          "type": "ColumnNameType"
+        },
+        "comparator": {
+          "type": "ComparatorType"
+        },
+        "integerNumber": {
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "googleAssistant": "actions.type.Number",
+            "nlpjs": "IntegerNumberType",
+            "snips": "snips/number"
+          }
+        },
+        "someString": {
+          "type": {
+            "alexa": "FreeTextType",
+            "googleAssistant": "actions.type.FreeText",
+            "nlpjs": "FreeTextType",
+            "snips": "FreeTextType"
+          }
+        }
+      }
+    },
+    "SetProjectionIntent": {
+      "phrases": [
+        "read contents from column {projectionColumnName}",
+        "{selectSynonym} only values from column {projectionColumnName}",
+        "{selectSynonym} only values from {projectionColumnName}",
+        "{selectSynonym} values from column {projectionColumnName}",
+        "{selectSynonym} values from {projectionColumnName}"
+      ],
+      "entities": {
+        "selectSynonym": {
+          "type": "SelectSynonymType"
+        },
+        "projectionColumnName": {
+          "type": "ColumnNameType"
+        }
+      }
+    },
+    "ResetProjectionIntent": {
+      "phrases": [
+        "reset projection",
+        "show all columns again"
+      ]
+    },
+    "SetFilterIntent": {
+      "phrases": [
+        "set filter to {filterColumnName} {comparator} {integerNumber}",
+        "set filter to {filterColumnName} {comparator} {someString}"
+      ],
+      "entities": {
+        "filterColumnName": {
+          "type": "ColumnNameType"
+        },
+        "rowSynonym": {
+          "type": "RowSynonymType"
+        },
+        "comparator": {
+          "type": "ComparatorType"
+        },
+        "integerNumber": {
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "googleAssistant": "actions.type.Number",
+            "nlpjs": "IntegerNumberType",
+            "snips": "snips/number"
+          }
+        },
+        "someString": {
+          "type": {
+            "alexa": "FreeTextType",
+            "googleAssistant": "actions.type.FreeText",
+            "nlpjs": "FreeTextType",
+            "snips": "FreeTextType"
+          }
+        }
+      }
+    },
+    "ReadCurrentFilterIntent": {
+      "phrases": [
+        "read current filter"
+      ]
+    },
+    "ResetFilterIntent": {
+      "phrases": [
+        "delete filter",
+        "remove filter",
+        "reset filter"
+      ]
+    },
+    "DropDeleteUpdateIntent": {
+      "phrases": [
+        "Delete",
+        "Delete column",
+        "Delete column {columnName}",
+        "Delete column {tableName}",
+        "Delete database",
+        "Delete database {columnName}",
+        "Delete database {tableName}",
+        "Delete row",
+        "Delete row {columnName}",
+        "Delete row {tableName}",
+        "Delete table",
+        "Delete table {columnName}",
+        "Delete table {tableName}",
+        "Delete {columnName}",
+        "Delete {tableName}",
+        "Drop database",
+        "Drop database {tableName}",
+        "Drop table",
+        "Drop table {tableName}",
+        "Remove",
+        "Remove column",
+        "Remove column {columnName}",
+        "Remove column {tableName}",
+        "Remove database",
+        "Remove database {columnName}",
+        "Remove database {tableName}",
+        "Remove row",
+        "Remove row {columnName}",
+        "Remove row {tableName}",
+        "Remove table",
+        "Remove table {columnName}",
+        "Remove table {tableName}",
+        "Remove {columnName}",
+        "Remove {tableName}",
+        "Update",
+        "Update column",
+        "Update column {columnName}",
+        "Update column {tableName}",
+        "Update database",
+        "Update database {columnName}",
+        "Update database {tableName}",
+        "Update row",
+        "Update row {columnName}",
+        "Update row {tableName}",
+        "Update table",
+        "Update table {columnName}",
+        "Update table {tableName}",
+        "Update {columnName}",
+        "Update {tableName}"
+      ],
+      "entities": {
+        "tableName": {
+          "type": "TableNameType"
+        },
+        "columnName": {
+          "type": "ColumnNameType"
+        }
+      }
+    },
+    "RepeatIntent": {
+      "alexa": {
+        "name": "AMAZON.RepeatIntent"
+      },
+      "phrases": [
+        "again",
+        "pardon",
+        "say this again"
+      ]
+    },
+    "ThanksIntent": {
+      "phrases": [
+        "thank you",
+        "thank you very much",
+        "thanks"
+      ]
+    },
+    "BadWordIntent": {
+      "phrases": [
+        "idiot",
+        "you are so dumb"
+      ]
+    },
+    "StopIntent": {
+      "alexa": {
+        "name": "AMAZON.StopIntent"
+      },
+      "dialogFlow": {
+        "events": [
+          {
+            "name": "actions_intent_CANCEL"
+          }
+        ]
+      },
+      "phrases": [
+        "Stop",
+        "Stopp"
+      ]
+    },
+    "CancelIntent": {
+      "alexa": {
+        "name": "AMAZON.CancelIntent"
+      },
+      "phrases": [
+        "Cancel"
+      ]
+    },
+    "HelpIntent": {
+      "alexa": {
+        "name": "AMAZON.HelpIntent"
+      },
+      "phrases": [
+        "Help",
+        "No clue",
+        "what can i do",
+        "what can i do now",
+        "what now"
+      ]
+    },
+    "StartOverIntent": {
+      "alexa": {
+        "name": "AMAZON.StartOverIntent"
+      },
+      "phrases": [
+        "from beginning",
+        "reset",
+        "reset application",
+        "restart"
+      ]
+    },
+    "ChooseValidColumnNameIntent": {
+      "phrases": [
+        "switch to column labelled {columnName}",
+        "switch to column name labelled {columnName}",
+        "switch to column name named {columnName}",
+        "switch to column name with the name {columnName}",
+        "switch to column name {columnName}",
+        "switch to column named {columnName}",
+        "switch to column with the name {columnName}",
+        "switch to column {columnName}",
+        "switch to the column labelled {columnName}",
+        "switch to the column name labelled {columnName}",
+        "switch to the column name named {columnName}",
+        "switch to the column name with the name {columnName}",
+        "switch to the column name {columnName}",
+        "switch to the column named {columnName}",
+        "switch to the column with the name {columnName}",
+        "switch to the column {columnName}"
+      ],
+      "entities": {
+        "columnName": {
+          "type": "ColumnNameType"
+        }
+      }
+    }
+  },
+  "alexa": {
+    "interactionModel": {
+      "languageModel": {
+        "intents": []
+      }
+    }
+  },
+  "entityTypes": {
+    "PaymentType": {
+      "values": [
+        {
+          "value": "Visa",
+          "id": "visa",
+          "synonyms": [
+            "My Visa Card",
+            "Visa",
+            "Visa Card"
+          ]
+        },
+        "amex",
+        "bitcoin",
+        "cash",
+        "cheque",
+        "master",
+        "paypal"
+      ]
+    },
+    "myCityEntityType": {
+      "values": [
+        "Berlin",
+        "Munich",
+        "New York"
+      ]
+    },
+    "IntegerNumberType": {
+      "values": [
+        {
+          "value": "1",
+          "id": "1",
+          "synonyms": [
+            "1",
+            "first",
+            "one"
+          ]
+        },
+        {
+          "value": "2",
+          "id": "2",
+          "synonyms": [
+            "2",
+            "second",
+            "two"
+          ]
+        },
+        {
+          "value": "3",
+          "id": "3",
+          "synonyms": [
+            "3",
+            "third",
+            "three"
+          ]
+        },
+        {
+          "value": "4",
+          "id": "4",
+          "synonyms": [
+            "4",
+            "four",
+            "fourth"
+          ]
+        }
+      ]
+    },
+    "FreeTextType": {
+      "values": [
+        "(grosvatersname)",
+        "aabis",
+        "aaliyah elaine",
+        "aaya",
+        "aayam",
+        "aayusha",
+        "abd elrahmen",
+        "abdul aziz",
+        "abdul mutallib",
+        "abdulhakim",
+        "abdulkhalim",
+        "abdull",
+        "abdulmelik",
+        "abdurrachman",
+        "abdurrezzak",
+        "adisa",
+        "adlan",
+        "adriatik",
+        "adrielle",
+        "adriyanov",
+        "afrodita",
+        "agasthya",
+        "agnese",
+        "aieda",
+        "aiisha",
+        "ailin",
+        "ailyah",
+        "alman",
+        "alpha",
+        "beta",
+        "binsesov",
+        "blerta",
+        "bollowick",
+        "bonglani",
+        "boquissuane",
+        "brice",
+        "bryzeida",
+        "bubacar",
+        "caroline",
+        "cesim",
+        "chantal joley",
+        "charlottenburg wilmersdorf",
+        "chi",
+        "colletta",
+        "conan",
+        "dafna",
+        "dalijora",
+        "damla su",
+        "dean luca",
+        "delijan",
+        "delina",
+        "delta",
+        "despoina",
+        "dewey",
+        "dilaya",
+        "dorje",
+        "eliz esilya",
+        "elka",
+        "elyanur",
+        "elyar",
+        "emanuela",
+        "epsilon",
+        "eta",
+        "evlin",
+        "evolette",
+        "fabienne michelle",
+        "fazeelat",
+        "fram",
+        "frank",
+        "friedrichshain kreuzberg",
+        "gamma",
+        "halil ibrahim",
+        "halit miran",
+        "hanine",
+        "harushiro",
+        "hennie",
+        "hirose",
+        "hoyam",
+        "i rin",
+        "ibrahim halil",
+        "icari",
+        "iolo",
+        "iosif neemia",
+        "iota",
+        "irati",
+        "isa jermaine",
+        "isaac eremia",
+        "isabella amelie",
+        "isabelle marie",
+        "isabey",
+        "isuf",
+        "itohanosa",
+        "jaguar",
+        "jaina",
+        "jak",
+        "jalessa",
+        "joleen jessi",
+        "ka",
+        "kaa",
+        "kappa",
+        "katira",
+        "keiliy",
+        "kellan",
+        "keyan merdan",
+        "khalil salieu",
+        "kisha",
+        "kleidi",
+        "koutoumya",
+        "ksenia",
+        "ladja",
+        "lamali",
+        "lambda",
+        "lichtenberg",
+        "m",
+        "marzahn hellersdorf",
+        "mitte",
+        "mu",
+        "neukoelln",
+        "nu",
+        "omega",
+        "omikron",
+        "pankow",
+        "phi",
+        "pi",
+        "psi",
+        "reinickendorf",
+        "rho",
+        "sigma",
+        "spandau",
+        "standesamt i",
+        "steglitz zehlendorf",
+        "tau",
+        "tempelhof schoeneberg",
+        "theta",
+        "treptow koepenick",
+        "w",
+        "xi",
+        "ypsilon",
+        "zema",
+        "zeta"
+      ]
+    },
+    "ColumnNameType": {
+      "values": [
+        "anzahl",
+        "bezirk",
+        "buchstabe",
+        "geschlecht",
+        "id",
+        "jahr",
+        "position",
+        "random",
+        "vorname"
+      ]
+    },
+    "TableNameType": {
+      "values": [
+        "empty",
+        "griechisch",
+        "vornamen"
+      ]
+    },
+    "SortOrderType": {
+      "values": [
+        {
+          "value": "asc",
+          "id": "asc",
+          "synonyms": [
+            "ascending",
+            "small values first"
+          ]
+        },
+        {
+          "value": "desc",
+          "id": "desc",
+          "synonyms": [
+            "big values first",
+            "descending"
+          ]
+        }
+      ]
+    },
+    "SelectSynonymType": {
+      "values": [
+        {
+          "value": "SELECT",
+          "id": "SELECT",
+          "synonyms": [
+            "filter",
+            "find",
+            "project",
+            "search",
+            "search for",
+            "select",
+            "show",
+            "show me"
+          ]
+        }
+      ]
+    },
+    "RowSynonymType": {
+      "values": [
+        {
+          "value": "row",
+          "id": "row",
+          "synonyms": [
+            "entries",
+            "entry",
+            "line",
+            "lines",
+            "results",
+            "row",
+            "rows",
+            "value",
+            "values"
+          ]
+        }
+      ]
+    },
+    "ColumnSynonymType": {
+      "values": [
+        {
+          "value": "column",
+          "id": "column",
+          "synonyms": [
+            "column",
+            "columns"
+          ]
+        }
+      ]
+    },
+    "ComparatorType": {
+      "values": [
+        {
+          "value": "equal",
+          "id": "equal",
+          "synonyms": [
+            "equal",
+            "equal with",
+            "equals",
+            "is",
+            "is equal",
+            "is equal with",
+            "same as"
+          ]
+        },
+        {
+          "value": "greater",
+          "id": "greater",
+          "synonyms": [
+            "greater",
+            "greater than",
+            "more as",
+            "more than"
+          ]
+        },
+        {
+          "value": "less",
+          "id": "less",
+          "synonyms": [
+            "less as",
+            "less than",
+            "smaller",
+            "smaller than"
+          ]
+        },
+        {
+          "value": "like",
+          "id": "like",
+          "synonyms": [
+            "is in",
+            "like",
+            "part of"
+          ]
+        }
+      ]
+    }
+  }
+}

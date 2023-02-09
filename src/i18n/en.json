@@ -1,0 +1,373 @@
+{
+  "translation": {
+    "VQL_MAIN_COMPONENT_STARTSPEECH": "Welcome to Voice QL",
+    "VQL_MAIN_COMPONENT_STARTTEXT": "Welcome to Voice QL",
+    "VQL_MAIN_COMPONENT_STARTREPROMPT": "What do you want to do? You may ask for metadata information or simply ask for help.",
+    "VQL_MAIN_COMPONENT_STARTQUICKREPLIES": [
+      "help",
+      "metadata"
+    ],
+    "VQL_MAIN_COMPONENT_WELCOME_INTENT_SPEECH": "Welcome to Voice-QL - you may want to switch to the German voice model because English ist prepared but not maintained completely. ",
+    "VQL_MAIN_COMPONENT_WELCOME_INTENT_TEXT": "Welcome to Voice-QL",
+    "VQL_MAIN_COMPONENT_WELCOME_INTENT_REPROMPT": "What do you want to do? You may ask for metadata information or simply ask for help.",
+    "VQL_MAIN_COMPONENT_NAME_OF_ALL_TABLES_INTENT_SPEECH": "The tables have the names ${join($session.data.vqlContext.latestQueryResult,', ',' and ')}",
+    "VQL_MAIN_COMPONENT_NAME_OF_ALL_TABLES_INTENT_TEXT": "The tables have the names ${join($session.data.vqlContext.latestQueryResult,', ',' and ')}",
+    "VQL_MAIN_COMPONENT_NAME_OF_ALL_TABLES_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_NAME_OF_ALL_TABLES_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_SWITCH_TO_TABLE_INTENT_ASSERTIONFAILEDSPEECH_1": "You need to choose a table name first before you can work with it. ",
+    "VQL_MAIN_COMPONENT_SWITCH_TO_TABLE_INTENT_ERRORSPEECH_1": "Something went wrong. ",
+    "VQL_MAIN_COMPONENT_SWITCH_TO_TABLE_INTENT_ERRORSPEECH_2": "I don't know this table. Try another one. ",
+    "VQL_MAIN_COMPONENT_SWITCH_TO_TABLE_INTENT_SPEECH": "Switching to table ${$session.data.vqlContext.currentTable.name}. Ask for metadata to learn more about this table. ",
+    "VQL_MAIN_COMPONENT_SWITCH_TO_TABLE_INTENT_TEXT": "Switching to table ${$session.data.vqlContext.currentTable.name}. Ask for metadata to learn more about this table. ",
+    "VQL_MAIN_COMPONENT_SWITCH_TO_TABLE_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_SWITCH_TO_TABLE_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_ASK_CURRENT_TABLE_NAME_INTENT_ASSERTIONFAILEDSPEECH_1": "You did not choose a table yet: ",
+    "VQL_MAIN_COMPONENT_ASK_CURRENT_TABLE_NAME_INTENT_SPEECH": "The current table is called ${$session.data.vqlContext.currentTable.name}. ",
+    "VQL_MAIN_COMPONENT_ASK_CURRENT_TABLE_NAME_INTENT_TEXT": "The current table is called ${$session.data.vqlContext.currentTable.name}. ",
+    "VQL_MAIN_COMPONENT_ASK_CURRENT_TABLE_NAME_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_ASK_CURRENT_TABLE_NAME_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_METADATA_REPORT_INTENT_ASSERTIONFAILEDSPEECH_1": "You need to choose a table name first before you can work with it. ",
+    "VQL_MAIN_COMPONENT_METADATA_REPORT_INTENT_SPEECH": "The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult.numOfRows} rows and ${$session.data.vqlContext.latestQueryResult.numOfColumns} columns. The names of the columns are ${join($session.data.vqlContext.latestQueryResult.nameOfColumns,', ',' and ')}. ",
+    "VQL_MAIN_COMPONENT_METADATA_REPORT_INTENT_TEXT": "The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult.numOfRows} rows and ${$session.data.vqlContext.latestQueryResult.numOfColumns} columns. The names of the columns are ${join($session.data.vqlContext.latestQueryResult.nameOfColumns,', ',' and ')}. ",
+    "VQL_MAIN_COMPONENT_METADATA_REPORT_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_METADATA_REPORT_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_CURRENT_STATUS_REPORT_INTENT_ASSERTIONFAILEDSPEECH_1": "Currently no table has been selected. ",
+    "VQL_MAIN_COMPONENT_CURRENT_STATUS_REPORT_INTENT_SPEECH": "Current status: The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult.numOfRows} rows and ${$session.data.vqlContext.latestQueryResult.numOfColumns} columns. The names of the columns are ${join($session.data.vqlContext.latestQueryResult.nameOfColumns,', ',' and ')}. Sort order: Column ${$session.data.vqlContext.currentTable.sortColumn} ${$session.data.vqlContext.currentTable.sortOrder}. ${$request.conditionUtterance == '' ? '' : 'Filter: ' + $request.conditionUtterance}",
+    "VQL_MAIN_COMPONENT_CURRENT_STATUS_REPORT_INTENT_TEXT": "Current status: The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult.numOfRows} rows and ${$session.data.vqlContext.latestQueryResult.numOfColumns} columns. The names of the columns are ${join($session.data.vqlContext.latestQueryResult.nameOfColumns,', ',' and ')}. Sort order: Column ${$session.data.vqlContext.currentTable.sortColumn} ${$session.data.vqlContext.currentTable.sortOrder}. ${$request.conditionUtterance == '' ? '' : 'Filter: ' + $request.conditionUtterance}",
+    "VQL_MAIN_COMPONENT_CURRENT_STATUS_REPORT_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_CURRENT_STATUS_REPORT_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_HOW_MANY_COLUMNS_INTENT_ASSERTIONFAILEDSPEECH_1": "You did not select a table yet. ",
+    "VQL_MAIN_COMPONENT_HOW_MANY_COLUMNS_INTENT_SPEECH": "The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult.numOfColumns} columns. ",
+    "VQL_MAIN_COMPONENT_HOW_MANY_COLUMNS_INTENT_TEXT": "The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult.numOfColumns} columns. ",
+    "VQL_MAIN_COMPONENT_HOW_MANY_COLUMNS_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_HOW_MANY_COLUMNS_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_HOW_MANY_ROWS_WITH_CONDITION_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first and then rephrase your query. ",
+    "VQL_MAIN_COMPONENT_HOW_MANY_ROWS_WITH_CONDITION_INTENT_ASSERTIONFAILEDSPEECH_2": "You did not choose a table yet: ",
+    "VQL_MAIN_COMPONENT_HOW_MANY_ROWS_WITH_CONDITION_INTENT_ASSERTIONFAILEDSPEECH_3": "I need a valid column name to proceed. ",
+    "VQL_MAIN_COMPONENT_HOW_MANY_ROWS_WITH_CONDITION_INTENT_SPEECH": "The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult} [lines|rows] based on the current filter. ",
+    "VQL_MAIN_COMPONENT_HOW_MANY_ROWS_WITH_CONDITION_INTENT_TEXT": "The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult} [lines|rows] based on the current filter. ",
+    "VQL_MAIN_COMPONENT_HOW_MANY_ROWS_WITH_CONDITION_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_HOW_MANY_ROWS_WITH_CONDITION_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_NAME_OF_ALL_COLUMNS_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_NAME_OF_ALL_COLUMNS_INTENT_SPEECH": "The columns of the table ${$session.data.vqlContext.currentTable.name} have the following names: ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. ",
+    "VQL_MAIN_COMPONENT_NAME_OF_ALL_COLUMNS_INTENT_TEXT": "The columns of the table ${$session.data.vqlContext.currentTable.name} have the following names: ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. ",
+    "VQL_MAIN_COMPONENT_NAME_OF_ALL_COLUMNS_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_NAME_OF_ALL_COLUMNS_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_NAME_OF_SPECIFIC_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_1": "You need to select a table firsgt before asking for a specific column. ",
+    "VQL_MAIN_COMPONENT_NAME_OF_SPECIFIC_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_2": "This column does not exist.  Current column names are ${$session.data.vqlContext.currentTable.columnNames}. ",
+    "VQL_MAIN_COMPONENT_NAME_OF_SPECIFIC_COLUMN_INTENT_SPEECH": "The name of column ${$entities.integerNumber.resolved} from table ${$session.data.vqlContext.currentTable.name} is ${$session.data.vqlContext.latestQueryResult}",
+    "VQL_MAIN_COMPONENT_NAME_OF_SPECIFIC_COLUMN_INTENT_TEXT": "The name of column ${$entities.integerNumber.resolved} from table ${$session.data.vqlContext.currentTable.name} is ${$session.data.vqlContext.latestQueryResult}",
+    "VQL_MAIN_COMPONENT_NAME_OF_SPECIFIC_COLUMN_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_NAME_OF_SPECIFIC_COLUMN_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_READ_CURRENT_ROW_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_READ_CURRENT_ROW_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_READ_CURRENT_ROW_INTENT_SPEECH": "The current line has the following contents: ${$request.rowContentDescription}",
+    "VQL_MAIN_COMPONENT_READ_CURRENT_ROW_INTENT_TEXT": "The current line has the following contents: ${$request.rowContentDescription}",
+    "VQL_MAIN_COMPONENT_READ_CURRENT_ROW_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_READ_CURRENT_ROW_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_FIRST_ROW_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_FIRST_ROW_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_NEXT_ROW_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_NEXT_ROW_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_NEXT_ROW_INTENT_ASSERTIONFAILEDSPEECH_3": "You are in the last line already. ",
+    "VQL_MAIN_COMPONENT_PREVIOUS_ROW_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_PREVIOUS_ROW_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_PREVIOUS_ROW_INTENT_ASSERTIONFAILEDSPEECH_3": "You are in the first line already. ",
+    "VQL_MAIN_COMPONENT_LAST_ROW_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_LAST_ROW_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_GOTO_ROW_INTENT_ASSERTIONFAILEDSPEECH_1": "You need to select a table firsgt before asking for a specific column. ",
+    "VQL_MAIN_COMPONENT_GOTO_ROW_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_GOTO_ROW_INTENT_ASSERTIONFAILEDSPEECH_3": "This row number does not exist. ",
+    "VQL_MAIN_COMPONENT_SORT_BY_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_SORT_BY_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_2": "I need a valid column name to proceed. ",
+    "VQL_MAIN_COMPONENT_SORT_ORDER_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_SORT_ORDER_INTENT_ASSERTIONFAILEDSPEECH_2": "Choose sort order ascending or descending. ",
+    "VQL_MAIN_COMPONENT_BIGGEST_VALUE_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_BIGGEST_VALUE_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_BIGGEST_VALUE_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_3": "I need a valid column name to proceed. ",
+    "VQL_MAIN_COMPONENT_BIGGEST_VALUE_IN_COLUMN_INTENT_SPEECH": "The biggest value in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. ",
+    "VQL_MAIN_COMPONENT_BIGGEST_VALUE_IN_COLUMN_INTENT_TEXT": "The biggest value in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. ",
+    "VQL_MAIN_COMPONENT_BIGGEST_VALUE_IN_COLUMN_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_BIGGEST_VALUE_IN_COLUMN_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_SMALLEST_VALUE_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_SMALLEST_VALUE_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_SMALLEST_VALUE_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_3": "I need a valid column name to proceed. ",
+    "VQL_MAIN_COMPONENT_SMALLEST_VALUE_IN_COLUMN_INTENT_SPEECH": "The smallest value in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. ",
+    "VQL_MAIN_COMPONENT_SMALLEST_VALUE_IN_COLUMN_INTENT_TEXT": "The smallest value in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. ",
+    "VQL_MAIN_COMPONENT_SMALLEST_VALUE_IN_COLUMN_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_SMALLEST_VALUE_IN_COLUMN_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_AVERAGE_VALUE_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_AVERAGE_VALUE_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_AVERAGE_VALUE_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_3": "I need a valid column name to proceed. ",
+    "VQL_MAIN_COMPONENT_AVERAGE_VALUE_IN_COLUMN_INTENT_SPEECH": "The average value in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. ",
+    "VQL_MAIN_COMPONENT_AVERAGE_VALUE_IN_COLUMN_INTENT_TEXT": "The average value in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. ",
+    "VQL_MAIN_COMPONENT_AVERAGE_VALUE_IN_COLUMN_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_AVERAGE_VALUE_IN_COLUMN_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_SUM_OF_VALUE_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_SUM_OF_VALUE_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_SUM_OF_VALUE_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_3": "I need a valid column name to proceed. ",
+    "VQL_MAIN_COMPONENT_SUM_OF_VALUE_IN_COLUMN_INTENT_SPEECH": "The sum of all values in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. ",
+    "VQL_MAIN_COMPONENT_SUM_OF_VALUE_IN_COLUMN_INTENT_TEXT": "The sum of all values in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. ",
+    "VQL_MAIN_COMPONENT_SUM_OF_VALUE_IN_COLUMN_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_SUM_OF_VALUE_IN_COLUMN_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_NUMBER_OF_DISTINCT_VALUES_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_MAIN_COMPONENT_NUMBER_OF_DISTINCT_VALUES_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_NUMBER_OF_DISTINCT_VALUES_IN_COLUMN_INTENT_ASSERTIONFAILEDSPEECH_3": "I need a valid column name to proceed. ",
+    "VQL_MAIN_COMPONENT_NUMBER_OF_DISTINCT_VALUES_IN_COLUMN_INTENT_SPEECH": "In column ${$session.data.vqlContext.currentTable.columnName} there are ${$session.data.vqlContext.latestQueryResult} different values. ",
+    "VQL_MAIN_COMPONENT_NUMBER_OF_DISTINCT_VALUES_IN_COLUMN_INTENT_TEXT": "In column ${$session.data.vqlContext.currentTable.columnName} there are ${$session.data.vqlContext.latestQueryResult} different values. ",
+    "VQL_MAIN_COMPONENT_NUMBER_OF_DISTINCT_VALUES_IN_COLUMN_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_NUMBER_OF_DISTINCT_VALUES_IN_COLUMN_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_SELECT_STATEMENT_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first and then rephrase your query. ",
+    "VQL_MAIN_COMPONENT_SELECT_STATEMENT_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_SELECT_STATEMENT_INTENT_ASSERTIONFAILEDSPEECH_3": "I need a valid column name to proceed. ",
+    "VQL_MAIN_COMPONENT_SELECT_STATEMENT_INTENT_ASSERTIONFAILEDSPEECH_4": "I need a valid column name to proceed. ",
+    "VQL_MAIN_COMPONENT_SET_PROJECTION_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first and then rephrase your query. ",
+    "VQL_MAIN_COMPONENT_SET_PROJECTION_INTENT_ASSERTIONFAILEDSPEECH_2": "The table is empty. ",
+    "VQL_MAIN_COMPONENT_SET_PROJECTION_INTENT_ASSERTIONFAILEDSPEECH_3": "I need a valid column name to proceed. ",
+    "VQL_MAIN_COMPONENT_RESET_PROJECTION_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first and then rephrase your query. ",
+    "VQL_MAIN_COMPONENT_SET_FILTER_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first and then rephrase your query. ",
+    "VQL_MAIN_COMPONENT_SET_FILTER_INTENT_ASSERTIONFAILEDSPEECH_2": "I need a valid column name to proceed. ",
+    "VQL_MAIN_COMPONENT_READ_CURRENT_FILTER_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first and then rephrase your query. ",
+    "VQL_MAIN_COMPONENT_READ_CURRENT_FILTER_INTENT_SPEECH": "${$request.conditionUtterance == '' ? 'no filter defined' : 'Current filter:: ' + $request.conditionUtterance}",
+    "VQL_MAIN_COMPONENT_READ_CURRENT_FILTER_INTENT_TEXT": "${$request.conditionUtterance == '' ? 'no filter defined' : 'Current filter:: ' + $request.conditionUtterance}",
+    "VQL_MAIN_COMPONENT_READ_CURRENT_FILTER_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_DROP_DELETE_UPDATE_INTENT_SPEECH": "Delete or Update via voice is not supported. ",
+    "VQL_MAIN_COMPONENT_DROP_DELETE_UPDATE_INTENT_TEXT": "Delete or Update via voice is not supported. ",
+    "VQL_MAIN_COMPONENT_DROP_DELETE_UPDATE_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_DROP_DELETE_UPDATE_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_THANKS_INTENT_SPEECH": "[ You are welcome! | Welcome!]",
+    "VQL_MAIN_COMPONENT_THANKS_INTENT_TEXT": "[ You are welcome! | Welcome!]",
+    "VQL_MAIN_COMPONENT_THANKS_INTENT_REPROMPT": "What do you want to do know? You may ask for help. ",
+    "VQL_MAIN_COMPONENT_BAD_WORD_INTENT_SPEECH": "[ This is not nice! | Mind your language! ]",
+    "VQL_MAIN_COMPONENT_BAD_WORD_INTENT_TEXT": "[ This is not nice! | Mind your language! ]",
+    "VQL_MAIN_COMPONENT_BAD_WORD_INTENT_REPROMPT": "What do you want to do know? You may ask for help. ",
+    "VQL_MAIN_COMPONENT_STOP_INTENT_SPEECH": "Good Bye",
+    "VQL_MAIN_COMPONENT_STOP_INTENT_TEXT": "Good Bye",
+    "VQL_MAIN_COMPONENT_CANCEL_INTENT_SPEECH": "Good Bye",
+    "VQL_MAIN_COMPONENT_CANCEL_INTENT_TEXT": "Good Bye",
+    "VQL_MAIN_COMPONENT_HELP_INTENT_SPEECH": "You may ask for metadata",
+    "VQL_MAIN_COMPONENT_HELP_INTENT_TEXT": "You may ask for metadata",
+    "VQL_MAIN_COMPONENT_HELP_INTENT_REPROMPT": "What now",
+    "VQL_MAIN_COMPONENT_HELP_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_MAIN_COMPONENT_START_OVER_INTENT_VALUES": [
+      {
+        "value": "equal",
+        "id": "equal",
+        "synonyms": [
+          "is",
+          "[|is] equal [|with]",
+          "equals",
+          "same as"
+        ]
+      },
+      {
+        "value": "greater",
+        "id": "greater",
+        "synonyms": [
+          "greater than",
+          "greater",
+          "more than",
+          "more as"
+        ]
+      },
+      {
+        "value": "less",
+        "id": "less",
+        "synonyms": [
+          "smaller than",
+          "smaller",
+          "less than",
+          "less as"
+        ]
+      },
+      {
+        "value": "like",
+        "id": "like",
+        "synonyms": [
+          "like",
+          "part of",
+          "is in"
+        ]
+      }
+    ],
+    "VQL_ASK_TABLE_NAME_COMPONENT_STARTSPEECH": "You need to choose a table name first before you can work with it. You may choose one of ${join($session.data.TableNameList,', ',' and ')}.",
+    "VQL_ASK_TABLE_NAME_COMPONENT_STARTTEXT": "You need to choose a table name first before you can work with it. You may choose one of ${join($session.data.TableNameList,', ',' and ')}.",
+    "VQL_ASK_TABLE_NAME_COMPONENT_STARTREPROMPT": "You need to choose a table name first before you can work with it. You may choose one of ${join($session.data.TableNameList,', ',' and ')}.",
+    "VQL_ASK_TABLE_NAME_COMPONENT_STARTQUICKREPLIES": [
+      "INIT",
+      "BETA"
+    ],
+    "VQL_ASK_TABLE_NAME_COMPONENT_SWITCH_TO_TABLE_INTENT_ASSERTIONFAILEDSPEECH_1": "You need to specify a table. You may choose one of ${join(TableNameList,', ',' and ')}.",
+    "VQL_ASK_TABLE_NAME_COMPONENT_SWITCH_TO_TABLE_INTENT_ERRORSPEECH_1": "Something went wrong. You may ask for help. ",
+    "VQL_ASK_TABLE_NAME_COMPONENT_SWITCH_TO_TABLE_INTENT_ERRORSPEECH_2": "I don't know this table. You may choose one of ${join(TableNameList,', ',' and ')}.",
+    "VQL_ASK_TABLE_NAME_COMPONENT_SWITCH_TO_TABLE_INTENT_QUICKREPLIES": [
+      "vornamen",
+      "empty",
+      "griechisch"
+    ],
+    "VQL_ASK_TABLE_NAME_COMPONENT_NAME_OF_ALL_TABLES_INTENT_SPEECH": "The tables have the names ${join($session.data.vqlContext.latestQueryResult,', ',' and ')}",
+    "VQL_ASK_TABLE_NAME_COMPONENT_NAME_OF_ALL_TABLES_INTENT_TEXT": "The tables have the names ${join($session.data.vqlContext.latestQueryResult,', ',' and ')}",
+    "VQL_ASK_TABLE_NAME_COMPONENT_NAME_OF_ALL_TABLES_INTENT_REPROMPT": "What now",
+    "VQL_ASK_TABLE_NAME_COMPONENT_NAME_OF_ALL_TABLES_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_ASK_TABLE_NAME_COMPONENT_HELP_INTENT_SPEECH": "Please select a table which you want to work with. You may choose one of ${join(TableNameList,', ',' and ')}.",
+    "VQL_ASK_TABLE_NAME_COMPONENT_HELP_INTENT_TEXT": "Please select a table which you want to work with. You may choose one of ${join(TableNameList,', ',' and ')}.",
+    "VQL_ASK_TABLE_NAME_COMPONENT_HELP_INTENT_REPROMPT": "Please try this: select a table which you want to work with. You may choose one of ${join(TableNameList,', ',' and ')}.",
+    "VQL_ASK_TABLE_NAME_COMPONENT_HELP_INTENT_QUICKREPLIES": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "VQL_ASK_COLUMN_NAME_COMPONENT_STARTSPEECH": "You need to choose a column name name first. You may choose one of ${join($session.data.vqlContext.currentTable.columnNames,', ',' and ')}.",
+    "VQL_ASK_COLUMN_NAME_COMPONENT_STARTTEXT": "You need to choose a column name name first. You may choose one of ${join($session.data.vqlContext.currentTable.columnNames,', ',' and ')}.",
+    "VQL_ASK_COLUMN_NAME_COMPONENT_STARTREPROMPT": "You need to choose a column name name first. You may choose one of ${join($session.data.vqlContext.currentTable.columnNames,', ',' and ')}.",
+    "VQL_ASK_COLUMN_NAME_COMPONENT_STARTQUICKREPLIES": [
+      "${$session.data.vqlContext.currentTable.columnNames}"
+    ],
+    "VQL_ASK_COLUMN_NAME_COMPONENT_CHOOSE_VALID_COLUMN_NAME_INTENT_ASSERTIONFAILEDSPEECH_1": "I need a valid column name to proceed. ",
+    "VQL_ASK_COLUMN_NAME_COMPONENT_CHOOSE_VALID_COLUMN_NAME_INTENT_QUICKREPLIES": [
+      "${$session.data.vqlContext.currentTable.columnNames}"
+    ],
+    "VQL_ASK_COLUMN_NAME_COMPONENT_NAME_OF_ALL_COLUMNS_INTENT_ASSERTIONFAILEDSPEECH_1": "Choose a table name first. ",
+    "VQL_ASK_COLUMN_NAME_COMPONENT_NAME_OF_ALL_COLUMNS_INTENT_SPEECH": "The columns of the table ${$session.data.vqlContext.currentTable.name} have the following names: ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. ",
+    "VQL_ASK_COLUMN_NAME_COMPONENT_NAME_OF_ALL_COLUMNS_INTENT_TEXT": "The columns of the table ${$session.data.vqlContext.currentTable.name} have the following names: ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. ",
+    "VQL_ASK_COLUMN_NAME_COMPONENT_NAME_OF_ALL_COLUMNS_INTENT_REPROMPT": "What now",
+    "VQL_ASK_COLUMN_NAME_COMPONENT_NAME_OF_ALL_COLUMNS_INTENT_QUICKREPLIES": [
+      "${$session.data.vqlContext.currentTable.columnNames}"
+    ],
+    "VQL_ASK_COLUMN_NAME_COMPONENT_HELP_INTENT_SPEECH": "Please select a valid column name. You may choose one of ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. ",
+    "VQL_ASK_COLUMN_NAME_COMPONENT_HELP_INTENT_TEXT": "Please select a valid column name. You may choose one of ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. ",
+    "VQL_ASK_COLUMN_NAME_COMPONENT_HELP_INTENT_REPROMPT": "Try this: select a valid column name. You may choose one of ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. ",
+    "VQL_ASK_COLUMN_NAME_COMPONENT_HELP_INTENT_QUICKREPLIES": [
+      "${$session.data.vqlContext.currentTable.columnNames}"
+    ],
+    "ERROR_HANDLER_MESSAGE": "Something went wrong unexpectedly. ",
+    "UNHANDLED_ERROR_HANDLER_MESSAGE": "I did not understand that. Please try again or ask for help. ",
+    "UNHANDLED_ERROR_HANDLER_QUICK_REPLIES": [
+      "Help"
+    ],
+    "ERROR_NO_TABLE_SELECTED_SPEECH": "You need to choose a table name first before you can work with it. You may choose one of ${join($session.data.TableNameList,', ',' and ')}.",
+    "NO_TABLE_SELECTED_REPROMPT": "You need to choose a table name first before you can work with it. You may choose one of ${join($session.data.TableNameList,', ',' and ')}.",
+    "ERROR_NO_COLUMN_SELECTED_SPEECH": "You need to choose a column name name first. You may choose one of ${join($session.data.vqlContext.currentTable.columnNames,', ',' and ')}.",
+    "ERROR_COLUMN_NAME_UNKNOWN": "I need a valid column name to proceed. ",
+    "INVALID_COLUMN_NAME_SPEECH": "The given column name was not recognized or does not exist. ",
+    "INVALID_COLUMN_NAME_REPROMPT": "The given column name was not recognized or does not exist. ",
+    "ERROR_SORT_ORDER_INVALID_SPEECH": "You need to define the sort order. ",
+    "SORT_ORDER_INVALID_REPROMPT": "You need to define the sort order. ",
+    "LOCALIZED_AND": "and",
+    "LOCALIZED_EMPTY": "no data",
+    "LOCALIZED_COMPARATOR": {
+      "equal": "equals",
+      "greater": "greater than",
+      "less": "less than",
+      "like": "like"
+    },
+    "REPEAT_INTRO": "Again: ",
+    "QUICK_REPLIES_ARRAY": [
+      "Help",
+      "Restart",
+      "Test"
+    ],
+    "someKey1": "welcome1",
+    "someKey2": "welcome2",
+    "myTest": "hello",
+    "myPayArray": [
+      "[|The] bill please",
+      "I [|want to] pay with {paymentType}"
+    ],
+    "PaymentTypeArray": [
+      "cash",
+      "master",
+      "amex",
+      "cheque",
+      "paypal",
+      "bitcoin",
+      {
+        "value": "Visa",
+        "id": "visa",
+        "synonyms": [
+          "Visa",
+          "Visa Card",
+          "My Visa Card"
+        ]
+      }
+    ],
+    "someKeyInternational": "for all locales",
+    "TableNameList": [
+      "vornamen",
+      "empty",
+      "griechisch"
+    ]
+  }
+}

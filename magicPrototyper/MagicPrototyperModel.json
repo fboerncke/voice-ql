@@ -1,0 +1,2892 @@
+{
+  "invocation": {
+    "alexa": "define this value in file jovo.project.ts",
+    "googleAssistant": "define this value in file jovo.project.ts"
+  },
+  "version": "4.0",
+  "sqliteDatabase": {
+    "sqliteDbFileName": "./voiceql.sqlite",
+    "maxGeneratedSlotSize": "100"
+  },
+  "generateForLocales": ["de", "en"],
+  "config": {
+    "ERROR_HANDLER_MESSAGE": {
+      "de": "[|Entschuldigung.|Das tut mir leid.] Da ist [|leider] etwas unerwartet schief gegangen. [|Das sollte nicht passieren.|Das hätte nicht passieren sollen.] [|Das tut mir [|sehr] leid]. [[|Ich bitte vielmals um] Entschuldigung]",
+      "en": "Something went wrong unexpectedly. "
+    },
+
+    "UNHANDLED_ERROR_HANDLER_MESSAGE": {
+      "de": "Das konnte ich nicht zuordnen. Probiere es bitte noch einmal oder bitte um Hilfe. ",
+      "en": "I did not understand that. Please try again or ask for help. "
+    },
+    "UNHANDLED_ERROR_HANDLER_QUICK_REPLIES": {
+      "de": ["Hilfe"],
+      "en": ["Help"]
+    },
+
+    "ERROR_NO_TABLE_SELECTED_SPEECH": {
+      "de": "Welche der folgenden Tabellen möchtest Du verwenden: Zur [Auswahl|Verfügung] stehen ${join($session.data.TableNameList,', ',' und ')}.",
+      "en": "You need to choose a table name first before you can work with it. You may choose one of ${join($session.data.TableNameList,', ',' and ')}."
+    },
+    "NO_TABLE_SELECTED_REPROMPT": {
+      "de": "Welche der folgenden Tabellen möchtest Du verwenden: Zur [Auswahl|Verfügung] stehen ${join($session.data.TableNameList,', ',' und ')}.",
+      "en": "You need to choose a table name first before you can work with it. You may choose one of ${join($session.data.TableNameList,', ',' and ')}."
+    },
+    "ERROR_NO_COLUMN_SELECTED_SPEECH": {
+      "de": "Welche der folgenden Spalten möchtest Du verwenden: Zur [Auswahl|Verfügung] stehen ${join($session.data.vqlContext.currentTable.columnNames,', ',' und ')}.",
+      "en": "You need to choose a column name name first. You may choose one of ${join($session.data.vqlContext.currentTable.columnNames,', ',' and ')}."
+    },
+    "ERROR_COLUMN_NAME_UNKNOWN": {
+      "de": "Ich [brauche|benötige] einen gültigen Spaltennamen, um weiter [arbeiten|machen] zu können. ",
+      "en": "I need a valid column name to proceed. "
+    },
+    "INVALID_COLUMN_NAME_SPEECH": {
+      "de": "Der angegebene Spaltenname wurde nicht erkannt oder existiert nicht. ",
+      "en": "The given column name was not recognized or does not exist. "
+    },
+    "INVALID_COLUMN_NAME_REPROMPT": {
+      "de": "Der angegebene Spaltenname wurde nicht erkannt oder existiert nicht. ",
+      "en": "The given column name was not recognized or does not exist. "
+    },
+
+    "ERROR_SORT_ORDER_INVALID_SPEECH": {
+      "de": "Die Sortierreihenfolge muss korrekt angegeben werden. ",
+      "en": "You need to define the sort order. "
+    },
+    "SORT_ORDER_INVALID_REPROMPT": {
+      "de": "Die Sortierreihenfolge muss korrekt angegeben werden. ",
+      "en": "You need to define the sort order. "
+    },
+
+    "LOCALIZED_AND": {
+      "de": "und",
+      "en": "and"
+    },
+
+    "LOCALIZED_EMPTY": {
+      "de": "kein Eintrag",
+      "en": "no data"
+    },
+
+    "LOCALIZED_COMPARATOR": {
+      "de": {
+        "equal": "gleich",
+        "greater": "größer als",
+        "less": "kleiner als",
+        "like": "so wie"
+      },
+      "en": {
+        "equal": "equals",
+        "greater": "greater than",
+        "less": "less than",
+        "like": "like"
+      }
+    },
+
+    "REPEAT_INTRO": {
+      "de": "Gerne wiederhole ich das noch einmal: ",
+      "en": "Again: "
+    },
+
+    "QUICK_REPLIES_ARRAY": {
+      "de": [
+        "Hilfe",
+        "Wähle tabelle Vornamen",
+        "Wähle empty",
+        "wähle zeilen mit vorname gleich frank",
+        "SELECT stern WHERE SPALTE Vorname gleich frank",
+        "SELECT stern FROM vornamen WHERE SPALTE Vorname gleich frank",
+        "was ist der größte wert in spalte anzahl",
+        "aktuelle zeile",
+        "nächste zeile",
+        "vorherige zeile",
+        "letzte zeile",
+        "Metadata",
+        "wieviel zeilen",
+        "status"
+      ],
+      "en": ["Help", "Restart", "Test"]
+    },
+
+    "someKey1": {
+      "de": "willkommen1",
+      "en": "welcome1"
+    },
+    "someKey2": {
+      "de": "willkommen2",
+      "en": "welcome2"
+    },
+    "myTest": {
+      "de": "hallo",
+      "en": "hello"
+    },
+    "myPayArray": {
+      "de": [
+        "Die Rechnung bitte",
+        "Herr Ober [Ich [will|möchte] [|jetzt] [|bitte|gerne]] zahlen mit {paymentType}"
+      ],
+      "en": ["[|The] bill please", "I [|want to] pay with {paymentType}"]
+    },
+    "PaymentTypeArray": {
+      "de": [
+        "bar",
+        "master",
+        "bar",
+        "amex",
+        "",
+        null,
+        "scheck",
+        "paypal",
+        "bitcoin",
+        {
+          "value": "Visa",
+          "id": "visa",
+          "synonyms": ["Visa", "Visa", "${myTest}", "Visa Karte", "Meine Visa Karte"]
+        }
+      ],
+      "en": [
+        "cash",
+        "master",
+        "amex",
+        "cheque",
+        "paypal",
+        "bitcoin",
+        {
+          "value": "Visa",
+          "id": "visa",
+          "synonyms": ["Visa", "Visa Card", "My Visa Card"]
+        }
+      ]
+    },
+    "someKeyInternational": "for all locales",
+    "TableNameList": "${TableNameList}"
+  },
+  "componentHeaderLines": [
+    "// this comes from MagicPrototyperMpdel.json file",
+    "import * as VQL from '../backend/VQLprocessor';",
+    "// end of configured import"
+  ],
+  "components": [
+    {
+      "componentName": "VqlMainComponent",
+      "start": {
+        "startSpeech": {
+          "de": ["Hallo und Willkommen bei Voice QL"],
+          "en": ["Welcome to Voice QL"]
+        },
+        "startText": {
+          "de": ["Hallo und Willkommen bei Voice QL"],
+          "en": ["Welcome to Voice QL"]
+        },
+        "startReprompt": {
+          "de": [
+            "[Wie magst Du weiter machen?|Was magst Du [|nun] machen?] Frage zum Beispiel nach Metadaten, wähle eine Tabelle aus oder bitte jederzeit um Hilfe."
+          ],
+          "en": [
+            "What do you want to do? You may ask for metadata information or simply ask for help."
+          ]
+        },
+        "startQuickReplies": {
+          "de": [
+            "Hilfe",
+            "wie viele zeilen",
+            "wähle tabelle vornamen",
+            "wähle empty",
+            "wähle obstkorb",
+            "wie heißen die tabellen",
+            "metadata"
+          ],
+          "en": ["help", "metadata"]
+        }
+      },
+
+      "intents": {
+        "WelcomeIntent": {
+          "phrases": {
+            "de": ["willkommen"],
+            "en": ["welcome"]
+          },
+          "speech": {
+            "de": ["[|Herzlich|Hallo und] Willkommen bei Voice-QL"],
+            "en": [
+              "Welcome to Voice-QL - you may want to switch to the German voice model because English ist prepared but not maintained completely. "
+            ]
+          },
+          "text": {
+            "de": ["Willkommen bei Voice-QL"],
+            "en": ["Welcome to Voice-QL"]
+          },
+          "reprompt": {
+            "de": [
+              "[Wie magst Du weiter machen?|Was magst Du [|nun] machen?] Frage zum Beispiel nach Metadaten, wähle eine Tabelle aus oder bitte jederzeit um Hilfe."
+            ],
+            "en": [
+              "What do you want to do? You may ask for metadata information or simply ask for help."
+            ]
+          }
+        },
+
+        "NameOfAllTablesIntent": {
+          "phrases": {
+            "de": [
+              "[Wie [heißen|heissen] [deine|die] [Tabellen]|Welchen Namen haben die Tabellen|Bitte nenne mir die [Tabellen|Namen der Tabellen]]",
+              "Welche tabellen gibt es",
+              "Welche tabellen hast du"
+            ],
+            "en": ["Name the tables", "Name the table names", "What are the names of the tables"]
+          },
+          "native": ["this.$session.data.vqlContext = await VQL.getTableNames(this);"],
+          "speech": {
+            "de": [
+              "Die Namen der Tabellen lauten ${join($session.data.vqlContext.latestQueryResult,', ',' und ')}"
+            ],
+            "en": [
+              "The tables have the names ${join($session.data.vqlContext.latestQueryResult,', ',' and ')}"
+            ]
+          },
+          "text": {
+            "de": [
+              "Die Namen der Tabellen lauten ${join($session.data.vqlContext.latestQueryResult,', ',' und ')}"
+            ],
+            "en": [
+              "The tables have the names ${join($session.data.vqlContext.latestQueryResult,', ',' and ')}"
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "SwitchToTableIntent": {
+          "phrases": {
+            "de": [
+              "[Wechsele|wechsle|wechsel] [zu der|zur] [Tabelle] [|mit dem Namen] {tableName}",
+              "Wähle [|die] Tabelle [|mit dem Namen] {tableName}",
+              "{tableName}"
+            ],
+            "en": [
+              "[select|choose|switch to] [|the] table [|with the name|named|labelled] {tableName}",
+              "{tableName}"
+            ]
+          },
+          "entities": {
+            "tableName": {
+              "type": "TableNameType",
+              "assert": [
+                {
+                  "condition": "tableName !== undefined && this.$t('TableNameList').indexOf(tableName)> -1",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": [
+                        "Diese Tabelle finde ich nicht oder ich habe Dich [nicht richtig|falsch|nicht gut] verstanden. "
+                      ],
+                      "en": ["You need to choose a table name first before you can work with it. "]
+                    },
+                    "delegate": {
+                      "component": "VqlAskTableNameComponent",
+                      "continue": "MetadataReportIntent"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "// there may be another intent implementation with the same name in another component",
+            "this.$session.data.vqlContext = await VQL.setCurrentTable(this,tableName);"
+          ],
+          "onError": [
+            {
+              "condition": "error === undefined",
+              "errorSpeech": {
+                "de": "Etwas ist schief gegangen. ",
+                "en": "Something went wrong. "
+              }
+            },
+            {
+              "condition": "error.message === 'INVALID_TABLE_NAME'",
+              "errorSpeech": {
+                "de": "Eine Tabelle mit diesem Namen kenne ich nicht. Versuche einen anderen Namen oder frage einfach danach, wie die verfügbaren Tabellen heißen. ",
+                "en": "I don't know this table. Try another one. "
+              }
+            }
+          ],
+          "speech": {
+            "de": [
+              "Wechsel zur Tabelle ${$session.data.vqlContext.currentTable.name}. Du kannst nach den Metadaten fragen, um mehr über diese Tabelle zu erfahren. "
+            ],
+            "en": [
+              "Switching to table ${$session.data.vqlContext.currentTable.name}. Ask for metadata to learn more about this table. "
+            ]
+          },
+          "text": {
+            "de": [
+              "Wechsel zur Tabelle ${$session.data.vqlContext.currentTable.name}. Du kannst nach den Metadaten fragen, um mehr über diese Tabelle zu erfahren. "
+            ],
+            "en": [
+              "Switching to table ${$session.data.vqlContext.currentTable.name}. Ask for metadata to learn more about this table. "
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "AskCurrentTableNameIntent": {
+          "phrases": {
+            "de": [
+              "[Was ist|Wie lautet|wie heißt] die [|ausgewählte|aktuelle|ausgewählten|aktuellen] Tabelle",
+              "[Was ist|Wie lautet|wie heißt] der name der [|ausgewählten|aktuellen|ausgewählten] Tabelle",
+              "aktuelle Tabelle"
+            ],
+            "en": [
+              "[What is|whats] the name of the [|current|currently selected] table",
+              "Tell me the name of the [|current|currently selected] table",
+              "Current table"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Du hast noch gar keine Tabelle ausgewählt: "],
+                  "en": ["You did not choose a table yet: "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "AskCurrentTableNameIntent"
+                }
+              }
+            }
+          ],
+          "speech": {
+            "de": [
+              "Die [aktuelle|aktuell ausgewählte] Tabelle [hat den Namen|heißt] ${$session.data.vqlContext.currentTable.name}. "
+            ],
+            "en": ["The current table is called ${$session.data.vqlContext.currentTable.name}. "]
+          },
+          "text": {
+            "de": [
+              "Die [aktuelle|aktuell ausgewählte] Tabelle [hat den Namen|heißt] ${$session.data.vqlContext.currentTable.name}. "
+            ],
+            "en": ["The current table is called ${$session.data.vqlContext.currentTable.name}. "]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "MetadataReportIntent": {
+          "phrases": {
+            "de": [
+              "Erzähl mir etwas über Dich",
+              "Was hast Du für Eigenschaften",
+              "Metadaten",
+              "Metadata",
+              "describe [|table]"
+            ],
+            "en": [
+              "Tell me something about you",
+              "What are your properties",
+              "Metadata",
+              "describe"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": [
+                    "Du musst [zuerst|zunächst] eine [|existierende] Tabelle der Datenbank mit ihrem [|gültigen] Namen [wählen|auswählen]. "
+                  ],
+                  "en": ["You need to choose a table name first before you can work with it. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "MetadataReportIntent"
+                }
+              }
+            }
+          ],
+          "native": ["this.$session.data.vqlContext = await VQL.getMetadata(this);"],
+          "speech": {
+            "de": [
+              "Die Tabelle [|mit dem Namen] ${$session.data.vqlContext.currentTable.name} hat ${$session.data.vqlContext.latestQueryResult.numOfRows} Zeilen und ${$session.data.vqlContext.latestQueryResult.numOfColumns} ${$session.data.vqlContext.latestQueryResult.numOfColumns==1 ? 'Spalte' : 'Spalten'}. ${$session.data.vqlContext.latestQueryResult.numOfColumns==1 ? 'Der Name der Spalte lautet' : 'Die Namen der Spalten lauten'} ${join($session.data.vqlContext.latestQueryResult.nameOfColumns,', ',' und ')}. "
+            ],
+            "en": [
+              "The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult.numOfRows} rows and ${$session.data.vqlContext.latestQueryResult.numOfColumns} columns. The names of the columns are ${join($session.data.vqlContext.latestQueryResult.nameOfColumns,', ',' and ')}. "
+            ]
+          },
+          "text": {
+            "de": [
+              "Die Tabelle [|mit dem Namen] ${$session.data.vqlContext.currentTable.name} hat ${$session.data.vqlContext.latestQueryResult.numOfRows} Zeilen und ${$session.data.vqlContext.latestQueryResult.numOfColumns} ${$session.data.vqlContext.latestQueryResult.numOfColumns==1 ? 'Spalte' : 'Spalten'}. ${$session.data.vqlContext.latestQueryResult.numOfColumns==1 ? 'Der Name der Spalte lautet' : 'Die Namen der Spalten lauten'} ${join($session.data.vqlContext.latestQueryResult.nameOfColumns,', ',' und ')}. "
+            ],
+            "en": [
+              "The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult.numOfRows} rows and ${$session.data.vqlContext.latestQueryResult.numOfColumns} columns. The names of the columns are ${join($session.data.vqlContext.latestQueryResult.nameOfColumns,', ',' and ')}. "
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "CurrentStatusReportIntent": {
+          "phrases": {
+            "de": ["[|aktueller] status", "[|flash] briefing"],
+            "en": ["[|current] status", "[|flash] briefing"]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Aktuell ist keine Tabelle ausgewählt. "],
+                  "en": ["Currently no table has been selected. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "CurrentStatusReportIntent"
+                }
+              }
+            }
+          ],
+          "native": [
+            "this.$session.data.vqlContext = await VQL.getMetadata(this);",
+            "this.$request.conditionUtterance = VQL.prepareConditionDescriptionUtterance(this.$session.data.vqlContext, this.$t('LOCALIZED_COMPARATOR'));"
+          ],
+          "speech": {
+            "de": [
+              "Aktueller Status: Die Tabelle [|mit dem Namen] ${$session.data.vqlContext.currentTable.name} hat ${$session.data.vqlContext.latestQueryResult.numOfRows} Zeilen und ${$session.data.vqlContext.latestQueryResult.numOfColumns} Spalten. Die Namen der Spalten lauten ${join($session.data.vqlContext.latestQueryResult.nameOfColumns,', ',' und ')}. Sortierreihenfolge: Spalte ${$session.data.vqlContext.currentTable.sortColumn} ${$session.data.vqlContext.currentTable.sortOrder}. ${$request.conditionUtterance == '' ? '' : 'Filter: ' + $request.conditionUtterance}"
+            ],
+            "en": [
+              "Current status: The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult.numOfRows} rows and ${$session.data.vqlContext.latestQueryResult.numOfColumns} columns. The names of the columns are ${join($session.data.vqlContext.latestQueryResult.nameOfColumns,', ',' and ')}. Sort order: Column ${$session.data.vqlContext.currentTable.sortColumn} ${$session.data.vqlContext.currentTable.sortOrder}. ${$request.conditionUtterance == '' ? '' : 'Filter: ' + $request.conditionUtterance}"
+            ]
+          },
+          "text": {
+            "de": [
+              "Aktueller Status: Die Tabelle [|mit dem Namen] ${$session.data.vqlContext.currentTable.name} hat ${$session.data.vqlContext.latestQueryResult.numOfRows} Zeilen und ${$session.data.vqlContext.latestQueryResult.numOfColumns} Spalten. Die Namen der Spalten lauten ${join($session.data.vqlContext.latestQueryResult.nameOfColumns,', ',' und ')}. Sortierreihenfolge: Spalte ${$session.data.vqlContext.currentTable.sortColumn} ${$session.data.vqlContext.currentTable.sortOrder}. ${$request.conditionUtterance == '' ? '' : 'Filter: ' + $request.conditionUtterance}"
+            ],
+            "en": [
+              "Current status: The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult.numOfRows} rows and ${$session.data.vqlContext.latestQueryResult.numOfColumns} columns. The names of the columns are ${join($session.data.vqlContext.latestQueryResult.nameOfColumns,', ',' and ')}. Sort order: Column ${$session.data.vqlContext.currentTable.sortColumn} ${$session.data.vqlContext.currentTable.sortOrder}. ${$request.conditionUtterance == '' ? '' : 'Filter: ' + $request.conditionUtterance}"
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "HowManyColumnsIntent": {
+          "phrases": {
+            "de": [
+              "[wie viele|wie viel|wieviel|wieviel] Spalten [|hast Du]",
+              "[wie viele|wie viel|wieviel|wieviel] Spalten [|hat ] [|die] tabelle [|mit dem Namen]  {tableName}",
+              "und [wie viele|wie viel|wieviel|wieviel] spalten",
+              "zähl die spalten",
+              "COUNT columns",
+              "[|zähle] [|die] Anzahl [|der] Spalten",
+              "[|zähle] [|die] Anzahl [|der] Spalten von [|der] tabelle [|mit dem Namen] {tableName}"
+            ],
+            "en": [
+              "How many columns [|do you have]",
+              "[|count] [|the] number [|of] columns",
+              "count columns"
+            ]
+          },
+          "entities": {
+            "tableName": {
+              "type": "TableNameType",
+              "assert": [
+                {
+                  "condition": "VQL.hasTable(this) || tableName !== undefined",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["Du hast noch keine Tabelle ausgewählt. "],
+                      "en": ["You did not select a table yet. "]
+                    },
+                    "delegate": {
+                      "component": "VqlAskTableNameComponent",
+                      "continue": "HowManyColumnsIntent"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "if (tableName !== undefined) {this.$session.data.vqlContext = await VQL.setCurrentTable(this,tableName);}",
+            "this.$session.data.vqlContext = await VQL.getColumnNames(this);"
+          ],
+          "speech": {
+            "de": [
+              "Die Tabelle [|mit dem Namen] ${$session.data.vqlContext.currentTable.name} hat ${$session.data.vqlContext.latestQueryResult.numOfColumns} Spalten. "
+            ],
+            "en": [
+              "The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult.numOfColumns} columns. "
+            ]
+          },
+          "text": {
+            "de": [
+              "Die Tabelle [|mit dem Namen] ${$session.data.vqlContext.currentTable.name} hat ${$session.data.vqlContext.latestQueryResult.numOfColumns} Spalten. "
+            ],
+            "en": [
+              "The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult.numOfColumns} columns. "
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "HowManyRowsWithConditionIntent": {
+          "phrases": {
+            "de": [
+              "[wie viele|wie viel|wieviel|wieviel] {rowSynonym} sind das",
+              "[wie viele|wie viel|wieviel|wieviel] {rowSynonym} [|hast Du|hat die [|aktuelle] Tabelle]",
+              "[wie viele|wie viel|wieviel|wieviel] {rowSynonym} hat [|die] Tabelle [|mit dem Namen] {tableName}",
+              "wie [groß|gross|lang] ist [|die [|aktuelle]] Tabelle",
+              "wie [groß|gross|lang] ist [|die [|aktuelle]] Tabelle [|mit dem Namen] {tableName}",
+              "und [wie viele|wie viel|wieviel|wieviel] {rowSynonym}",
+              "zähl die {rowSynonym}",
+              "count {rowSynonym}",
+              "count {rowSynonym} [von|from] tabelle {tableName}",
+              "count {rowSynonym} [von|from] tabelle",
+              "count [sternchen|stern|star]",
+              "count [sternchen|stern|star] [von|from] tabelle {tableName}",
+              "[wieviele|wie viele] {rowSynonym} gibt es mit [|[|dem] Filter] {filterColumnName} {comparator} [{integerNumber}|{someString}]",
+              "[wieviele|wie viele] {rowSynonym} mit [|[|dem] Filter] {filterColumnName} {comparator} [{integerNumber}|{someString}] gibt es."
+            ],
+            "en": [
+              "How many [rows|lines] [|do you have|does this table have]",
+              "count [|the] [star|rows|lines]",
+              "how many rows with filter {filterColumnName} {comparator} [{integerNumber}|{someString}] "
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus und formuliere Deine Abfrage dann erneut. "],
+                  "en": ["Choose a table name first and then rephrase your query. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "HowManyRowsWithConditionIntent"
+                }
+              }
+            }
+          ],
+          "entities": {
+            "tableName": {
+              "type": "TableNameType",
+              "assert": [
+                {
+                  "condition": "VQL.hasTable(this) || tableName !== undefined",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["Du hast noch keine Tabelle ausgewählt: "],
+                      "en": ["You did not choose a table yet: "]
+                    },
+                    "delegate": {
+                      "component": "VqlAskTableNameComponent",
+                      "continue": "HowManyRowsWithConditionIntent"
+                    }
+                  }
+                }
+              ]
+            },
+
+            "filterColumnName": {
+              "type": "ColumnNameType",
+              "assert": [
+                {
+                  "condition": "filterColumnName == undefined || (this.$session.data.vqlContext.currentTable.columnNames).includes(filterColumnName)",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["${ERROR_COLUMN_NAME_UNKNOWN}"],
+                      "en": ["${ERROR_COLUMN_NAME_UNKNOWN}"]
+                    }
+                  }
+                }
+              ]
+            },
+            "rowSynonym": {
+              "type": "RowSynonymType"
+            },
+            "comparator": {
+              "type": "ComparatorType"
+            },
+            "integerNumber": {
+              "type": {
+                "alexa": "AMAZON.NUMBER",
+                "googleAssistant": "actions.type.Number",
+                "nlpjs": "IntegerNumberType",
+                "snips": "snips/number"
+              }
+            },
+            "someString": {
+              "type": {
+                "alexa": "FreeTextType",
+                "googleAssistant": "actions.type.FreeText",
+                "nlpjs": "FreeTextType",
+                "snips": "FreeTextType"
+              }
+            }
+          },
+          "native": [
+            "//this.$request.filterColumn =  this.$entities?.filterColumnName?.resolved;",
+            "//this.$session.data.vqlContext.currentTable.filterColumn = filterColumnName;",
+            "//this.$session.data.vqlContext.currentTable.comparator = comparator;",
+
+            "//const fallbackComparator = this.$entities.comparator_0?.resolved;",
+            "//if(this.$session.data.vqlContext.currentTable.comparator===undefined) {this.$session.data.vqlContext.currentTable.comparator=fallbackComparator }",
+
+            "if(filterColumnName != undefined) {this.$session.data.vqlContext.currentTable.filterColumn = filterColumnName;}",
+            "if(comparator != undefined) {this.$session.data.vqlContext.currentTable.comparator = comparator;}",
+
+            "if(integerNumber !== undefined) {this.$session.data.vqlContext.currentTable.filterValue = integerNumber;}",
+            "if(someString !== undefined) {this.$session.data.vqlContext.currentTable.filterValue = someString;}",
+
+            "this.$request.conditionUtterance =  VQL.prepareConditionDescriptionUtterance(this.$session.data.vqlContext, this.$t('LOCALIZED_COMPARATOR'));",
+
+            "this.$session.data.vqlContext.currentTable.rowNumber = 1;",
+            "this.$session.data.vqlContext = await VQL.buildAndPerformQueryFromContext(this.$session.data.vqlContext,'SELECT COUNT (*) AS NUM_OF_ROWS ',true);",
+            "this.$request.conditionUtterance = VQL.prepareConditionDescriptionUtterance(this.$session.data.vqlContext, this.$t('LOCALIZED_COMPARATOR'));"
+          ],
+          "speech": {
+            "de": [
+              "Die Tabelle [|mit dem Namen] ${$session.data.vqlContext.currentTable.name} hat ${$request.conditionUtterance == '' ? '' : ' mit dem Filter ' + $request.conditionUtterance} insgesamt ${$session.data.vqlContext.latestQueryResult} Zeilen. "
+            ],
+            "en": [
+              "The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult} [lines|rows] based on the current filter. "
+            ]
+          },
+          "text": {
+            "de": [
+              "Die Tabelle [|mit dem Namen] ${$session.data.vqlContext.currentTable.name} hat ${$request.conditionUtterance == '' ? '' : ' mit dem Filter ' + $request.conditionUtterance} insgesamt ${$session.data.vqlContext.latestQueryResult} Zeilen. "
+            ],
+            "en": [
+              "The table [|with the name] ${$session.data.vqlContext.currentTable.name} has ${$session.data.vqlContext.latestQueryResult} [lines|rows] based on the current filter. "
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "NameOfAllColumnsIntent": {
+          "phrases": {
+            "de": [
+              "[Wie [heißen|heissen] die [Spalten|Spaltennamen]|Welchen Namen haben die Spalten|Bitte nenne mir die [Spaltennamen|Namen der Spalten]] [| von [|der] tabelle {tableName}]",
+              "Welche spalten gibt es",
+              "name columns",
+              "column names"
+            ],
+            "en": [
+              "Name [|the] columns [|from table {tableName}]",
+              "What are the names of the columns [|from table {tableName}]",
+              "column names"
+            ]
+          },
+          "entities": {
+            "tableName": {
+              "type": "TableNameType",
+              "assert": [
+                {
+                  "condition": "VQL.hasTable(this) || tableName !== undefined",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["Wähle erst eine Tabelle. "],
+                      "en": ["Choose a table name first. "]
+                    },
+                    "delegate": {
+                      "component": "VqlAskTableNameComponent",
+                      "continue": "NameOfAllColumnsIntent"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "if (tableName !== undefined) {this.$session.data.vqlContext = await VQL.setCurrentTable(this,tableName);}",
+            "this.$session.data.vqlContext = await VQL.getColumnNames(this);"
+          ],
+          "speech": {
+            "de": [
+              "Die Spalten von der Tabelle ${$session.data.vqlContext.currentTable.name} heißen ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' und ')}. "
+            ],
+            "en": [
+              "The columns of the table ${$session.data.vqlContext.currentTable.name} have the following names: ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. "
+            ]
+          },
+          "text": {
+            "de": [
+              "Die Spalten von der Tabelle ${$session.data.vqlContext.currentTable.name} heißen ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' und ')}. "
+            ],
+            "en": [
+              "The columns of the table ${$session.data.vqlContext.currentTable.name} have the following names: ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. "
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "NameOfSpecificColumnIntent": {
+          "phrases": {
+            "de": [
+              "[Name [|von] | Was ist der Name von ] [|der] Spalte [|mit der Nummer|Nummer] {integerNumber}",
+              "[Welchen Namen hat | wie heißt] [|die] Spalte [|mit der Nummer|Nummer] {integerNumber}",
+              "[Name [|von] | Was ist der Name von] der {integerNumber} Spalte",
+              "[Welchen Namen hat | wie heißt] die {integerNumber} Spalte"
+            ],
+            "en": [
+              "What is the name of [|the] column [|with number] {integerNumber}",
+              "What is the name of [|the] {integerNumber} column",
+              "name of column {integerNumber}"
+            ]
+          },
+          "entities": {
+            "integerNumber": {
+              "type": {
+                "alexa": "AMAZON.NUMBER",
+                "googleAssistant": "actions.type.Number",
+                "nlpjs": "IntegerNumberType",
+                "snips": "snips/number"
+              },
+              "assert": [
+                {
+                  "condition": "VQL.hasTable(this)",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": [
+                        "Du musst zunächst eine Tabelle auswählen, um nach einer Spalte zu fragen: "
+                      ],
+                      "en": [
+                        "You need to select a table firsgt before asking for a specific column. "
+                      ]
+                    },
+                    "delegate": {
+                      "component": "VqlAskTableNameComponent",
+                      "continue": "NameOfAllColumnsIntent"
+                    }
+                  }
+                },
+                {
+                  "condition": "integerNumber !== undefined && Number(integerNumber) > 0 && Number(integerNumber) <= this.$session.data.vqlContext.currentTable.columnNames.length",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": [
+                        "Diese Spalte existiert nicht. Die aktuelle Tabelle hat die Spaltennamen: ${$session.data.vqlContext.currentTable.columnNames}. "
+                      ],
+                      "en": [
+                        "This column does not exist.  Current column names are ${$session.data.vqlContext.currentTable.columnNames}. "
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "this.$session.data.vqlContext = await VQL.getNthColumnName(this, integerNumber);"
+          ],
+          "speech": {
+            "de": [
+              "Der Name der Spalte ${$entities.integerNumber.resolved} von Tabelle ${$session.data.vqlContext.currentTable.name} ist ${$session.data.vqlContext.latestQueryResult}"
+            ],
+            "en": [
+              "The name of column ${$entities.integerNumber.resolved} from table ${$session.data.vqlContext.currentTable.name} is ${$session.data.vqlContext.latestQueryResult}"
+            ]
+          },
+          "text": {
+            "de": [
+              "Der Name der Spalte ${$entities.integerNumber.resolved} von Tabelle ${$session.data.vqlContext.currentTable.name} ist ${$session.data.vqlContext.latestQueryResult}"
+            ],
+            "en": [
+              "The name of column ${$entities.integerNumber.resolved} from table ${$session.data.vqlContext.currentTable.name} is ${$session.data.vqlContext.latestQueryResult}"
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "ReadCurrentRowIntent": {
+          "phrases": {
+            "de": [
+              "[lies|lese] [|mir] [|die] [|aktuelle|aktuellen] {rowSynonym} [|vor]",
+              "was ist [|die] [|aktuelle] {rowSynonym}",
+              "was steht in der [|aktuellen] {rowSynonym}",
+              "SELECT [|aktuelle] {rowSynonym}"
+            ],
+            "en": [
+              "Read [|the] [|current] {rowSynonym}",
+              "what is [|the] [|content of] [|current] {rowSynonym}",
+              "SELECT [|current] {rowSynonym}"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus. "],
+                  "en": ["Choose a table name first. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "ReadCurrentRowIntent"
+                }
+              }
+            },
+            {
+              "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                  "en": ["The table is empty. "]
+                }
+              }
+            }
+          ],
+          "entities": {
+            "rowSynonym": {
+              "type": "RowSynonymType"
+            }
+          },
+          "native": [
+            "this.$session.data.vqlContext = await VQL.getCurrentRowFromTable(this);",
+            "this.$request.rowContentDescription =  VQL.prepareRowContentDescriptionUtterance(this.$session.data.vqlContext, this.$t('LOCALIZED_AND'), this.$t('LOCALIZED_EMPTY'));",
+            "this.$request.rowNumber =  this.$session.data.vqlContext.currentTable.rowNumber;"
+          ],
+          "speech": {
+            "de": [
+              "Die [Zeile] Nummer ${$request.rowNumber} [hat folgenden Inhalt|beinhaltet die folgenden Werte]: ${$request.rowContentDescription}"
+            ],
+            "en": ["The current line has the following contents: ${$request.rowContentDescription}"]
+          },
+          "text": {
+            "de": [
+              "Die [Zeile] Nummer ${$request.rowNumber} [hat folgenden Inhalt|beinhaltet die folgenden Werte]: ${$request.rowContentDescription}"
+            ],
+            "en": ["The current line has the following contents: ${$request.rowContentDescription}"]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "FirstRowIntent": {
+          "phrases": {
+            "de": [
+              "[gehe zur|springe zur|was steht in der] [ersten] [Reihe|Zeile]",
+              "[erste] [Reihe|Zeile]",
+              "zur ersten [Reihe|Zeile] [springen|gehen]",
+              "[springe|gehe] zur ersten [Reihe|Zeile]",
+              "was steht in der [ersten] [Reihe|Zeile]"
+            ],
+            "en": [
+              "[|goto|Read| jump to] first [row|line]",
+              "what is [|the] [|content of] [the first] [row|line]"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus. "],
+                  "en": ["Choose a table name first. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "FirstRowIntent"
+                }
+              }
+            },
+            {
+              "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                  "en": ["The table is empty. "]
+                }
+              }
+            }
+          ],
+          "native": [
+            "this.$session.data.vqlContext.currentTable.rowNumber = 1;",
+            "this.$session.data.vqlContext = await VQL.getCurrentRowFromTable(this);",
+            "return this.readCurrentRowIntent();"
+          ]
+        },
+
+        "NextRowIntent": {
+          "phrases": {
+            "de": [
+              "[gehe zur|springe zur|was steht in der] nächsten [Reihe|Zeile]",
+              "nächste [Reihe|Zeile]",
+              "eine [Reihe|Zeile] weiter",
+              "was steht in der nächsten [Reihe|Zeile]"
+            ],
+            "en": [
+              "[|goto|Read| jump to] next [row|line]",
+              "what is [|the] [|content of] [the next] [row|line]"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus. "],
+                  "en": ["Choose a table name first. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "FirstRowIntent"
+                }
+              }
+            },
+            {
+              "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                  "en": ["The table is empty. "]
+                }
+              }
+            },
+            {
+              "description": "Make sure that row index remains in range",
+              "condition": "this.$session.data.vqlContext.currentTable.rowNumber < this.$session.data.vqlContext.currentTable.numOfRows",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Du bist schon in der letzten Zeile. "],
+                  "en": ["You are in the last line already. "]
+                }
+              }
+            }
+          ],
+          "native": [
+            "this.$session.data.vqlContext.currentTable.rowNumber = this.$session.data.vqlContext.currentTable.rowNumber + 1;",
+            "this.$session.data.vqlContext = await VQL.getCurrentRowFromTable(this);",
+            "return this.readCurrentRowIntent();"
+          ]
+        },
+
+        "PreviousRowIntent": {
+          "phrases": {
+            "de": [
+              "[gehe zur|springe zur|was steht in der] [vorherigen] [Reihe|Zeile]",
+              "[vorherige] [Reihe|Zeile]",
+              "eine [Reihe|Zeile] zurück",
+              "was steht in der [vorherigen] [Reihe|Zeile]"
+            ],
+            "en": [
+              "[|goto|Read| jump to] previous [row|line]",
+              "what is [|the] [|content of] [the previous] [row|line]"
+            ]
+          },
+          "assert": [
+            {
+              "description": "Make sure we have a table",
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus. "],
+                  "en": ["Choose a table name first. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "FirstRowIntent"
+                }
+              }
+            },
+            {
+              "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                  "en": ["The table is empty. "]
+                }
+              }
+            },
+            {
+              "description": "Make sure that row index remains positive",
+              "condition": "this.$session.data.vqlContext.currentTable.rowNumber > 1",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Du bist schon in der ersten Zeile. "],
+                  "en": ["You are in the first line already. "]
+                }
+              }
+            }
+          ],
+          "native": [
+            "this.$session.data.vqlContext.currentTable.rowNumber = this.$session.data.vqlContext.currentTable.rowNumber -1;",
+            "this.$session.data.vqlContext = await VQL.getCurrentRowFromTable(this);",
+            "return this.readCurrentRowIntent();"
+          ]
+        },
+
+        "LastRowIntent": {
+          "phrases": {
+            "de": [
+              "[gehe zur|springe zur|was steht in der] [letzten] [Reihe|Zeile]",
+              "[letzte] [Reihe|Zeile]",
+              "ans ende springen",
+              "zur letzten [Reihe|Zeile] [springen|gehen]"
+            ],
+            "en": [
+              "[|goto|Read| jump to] last [row|line]",
+              "what is [|the] [|content of] [the last] [row|line]"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus. "],
+                  "en": ["Choose a table name first. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "LastRowIntent"
+                }
+              }
+            },
+            {
+              "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                  "en": ["The table is empty. "]
+                }
+              }
+            }
+          ],
+          "native": [
+            "this.$session.data.vqlContext.currentTable.rowNumber = this.$session.data.vqlContext.currentTable.numOfRows;",
+            "this.$session.data.vqlContext = await VQL.getCurrentRowFromTable(this);",
+            "return this.readCurrentRowIntent();"
+          ]
+        },
+
+        "GotoRowIntent": {
+          "phrases": {
+            "de": [
+              "[gehe zur|springe zur|springe zu|was steht in] Zeile {integerNumber}",
+              "[zu|zur|in] Zeile {integerNumber} [springen|gehen]"
+            ],
+            "en": [
+              "[|goto|read|jump to] [row|line] {integerNumber}",
+              "what is [|the] [|content of] [row|line] {integerNumber}"
+            ]
+          },
+          "entities": {
+            "integerNumber": {
+              "type": {
+                "alexa": "AMAZON.NUMBER",
+                "googleAssistant": "actions.type.Number",
+                "nlpjs": "IntegerNumberType",
+                "snips": "snips/number"
+              },
+              "assert": [
+                {
+                  "condition": "VQL.hasTable(this)",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": [
+                        "Du musst zunächst eine Tabelle auswählen, um nach einer Spalte zu fragen: "
+                      ],
+                      "en": [
+                        "You need to select a table firsgt before asking for a specific column. "
+                      ]
+                    },
+                    "delegate": {
+                      "component": "VqlAskTableNameComponent",
+                      "continue": "FirstRowIntent"
+                    }
+                  }
+                },
+                {
+                  "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                      "en": ["The table is empty. "]
+                    }
+                  }
+                },
+                {
+                  "condition": "integerNumber !== undefined && Number(integerNumber) > 0 && Number(integerNumber) <= this.$session.data.vqlContext.currentTable.numOfRows",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["Diese Zeile existiert nicht. "],
+                      "en": ["This row number does not exist. "]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "this.$session.data.vqlContext.currentTable.rowNumber = integerNumber;",
+            "this.$session.data.vqlContext = await VQL.getCurrentRowFromTable(this);",
+            "return this.readCurrentRowIntent();"
+          ]
+        },
+
+        "SortByColumnIntent": {
+          "phrases": {
+            "de": [
+              "[Ordne|Sort|Sortiere] [nach] [|Spalte|Eigenschaft] {columnName} [|{sortOrder}]"
+            ],
+            "en": ["[order|Sort] by [|column] {columnName} [|{sortOrder}]"]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus. "],
+                  "en": ["Choose a table name first. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "NameOfAllColumnsIntent"
+                }
+              }
+            }
+          ],
+          "entities": {
+            "columnName": {
+              "type": "ColumnNameType",
+              "assert": [
+                {
+                  "condition": "columnName !== undefined && (this.$session.data.vqlContext.currentTable.columnNames).includes(columnName)",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["${ERROR_COLUMN_NAME_UNKNOWN}"],
+                      "en": ["${ERROR_COLUMN_NAME_UNKNOWN}"]
+                    },
+                    "delegate": {
+                      "component": "VqlAskColumnNameComponent",
+                      "continue": "SortByColumnIntent"
+                    }
+                  }
+                }
+              ]
+            },
+            "sortOrder": {
+              "type": "SortOrderType"
+            }
+          },
+          "native": [
+            "if(columnName!=undefined) {this.$session.data.vqlContext.currentTable.sortColumn = columnName;}",
+            "this.$session.data.vqlContext.currentTable.sortOrder = sortOrder !== undefined &&((sortOrder === 'asc' || sortOrder === 'desc'))  ? sortOrder : 'asc';",
+            "return this.readCurrentRowIntent();"
+          ]
+        },
+
+        "SortOrderIntent": {
+          "phrases": {
+            "de": [
+              "[Ordne|Sort|Sortiere|Sortierreihenfolge] {sortOrder}",
+              "[|und] [|nun|jetzt] {sortOrder}"
+            ],
+            "en": ["[sort|order|order by] {sortOrder}"]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus. "],
+                  "en": ["Choose a table name first. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "NameOfAllColumnsIntent"
+                }
+              }
+            }
+          ],
+          "entities": {
+            "sortOrder": {
+              "type": "SortOrderType",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle als Sortierreihenfolge aufsteigend oder absteigend. "],
+                  "en": ["Choose sort order ascending or descending. "]
+                },
+                "delegate": {
+                  "component": "VqlMainComponent",
+                  "continue": "SortOrderIntent"
+                }
+              }
+            }
+          },
+          "native": [
+            "this.$session.data.vqlContext.currentTable.sortOrder = sortOrder !== undefined &&((sortOrder === 'asc' || sortOrder === 'desc'))  ? sortOrder : 'asc';",
+            "return this.readCurrentRowIntent();"
+          ]
+        },
+
+        "BiggestValueInColumnIntent": {
+          "phrases": {
+            "de": [
+              "Was ist der [maximal|maximale|größte|höchste] Wert",
+              "Was ist der [maximal|maximale|größte|höchste] Wert in [|der] Spalte {columnName}",
+              "[maximaler|größter|höchster] Wert [|in] [|der] Spalte {columnName}"
+            ],
+            "en": [
+              "What is the [biggest|highest|maximum|maximal] value in [|the] [|column] {columnName}",
+              "[biggest|highest|maximum|maximal] value [|in] [|the] [|column] {columnName}"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus. "],
+                  "en": ["Choose a table name first. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "NameOfAllColumnsIntent"
+                }
+              }
+            },
+            {
+              "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                  "en": ["The table is empty. "]
+                }
+              }
+            }
+          ],
+          "entities": {
+            "columnName": {
+              "type": "ColumnNameType",
+              "assert": [
+                {
+                  "condition": "columnName !== undefined && (this.$session.data.vqlContext.currentTable.columnNames).includes(columnName)",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["${ERROR_COLUMN_NAME_UNKNOWN}"],
+                      "en": ["${ERROR_COLUMN_NAME_UNKNOWN}"]
+                    },
+                    "delegate": {
+                      "component": "VqlAskColumnNameComponent",
+                      "continue": "BiggestValueInColumnIntent"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "if(columnName!=undefined) {this.$session.data.vqlContext.currentTable.columnName = columnName;}",
+            "this.$session.data.vqlContext = await VQL.getMaxValueFromColumn(this);"
+          ],
+          "speech": {
+            "de": [
+              "Der größte Wert in Spalte ${$session.data.vqlContext.currentTable.columnName} ist ${$session.data.vqlContext.latestQueryResult}. "
+            ],
+            "en": [
+              "The biggest value in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. "
+            ]
+          },
+          "text": {
+            "de": [
+              "Der größte Wert in Spalte ${$session.data.vqlContext.currentTable.columnName} ist ${$session.data.vqlContext.latestQueryResult} "
+            ],
+            "en": [
+              "The biggest value in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. "
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "SmallestValueInColumnIntent": {
+          "phrases": {
+            "de": [
+              "Was ist der [minimal|minimale|kleinste|niedrigste] Wert",
+              "Was ist der [minimal|minimale|kleinste|niedrigste] Wert in Spalte {columnName}",
+              "[minimaler|kleinster|niedrigster] Wert [|in] Spalte {columnName}"
+            ],
+            "en": [
+              "What is the [smallest|lowest|minimum|minimal] value in [|column] {columnName}",
+              "[smallest|lowest|minimum|minimal] value [|in] [|column] {columnName}"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus. "],
+                  "en": ["Choose a table name first. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "NameOfAllColumnsIntent"
+                }
+              }
+            },
+            {
+              "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                  "en": ["The table is empty. "]
+                }
+              }
+            }
+          ],
+          "entities": {
+            "columnName": {
+              "type": "ColumnNameType",
+              "assert": [
+                {
+                  "condition": "columnName !== undefined && (this.$session.data.vqlContext.currentTable.columnNames).includes(columnName)",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["${ERROR_COLUMN_NAME_UNKNOWN}"],
+                      "en": ["${ERROR_COLUMN_NAME_UNKNOWN}"]
+                    },
+                    "delegate": {
+                      "component": "VqlAskColumnNameComponent",
+                      "continue": "SmallestValueInColumnIntent"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "if(columnName!=undefined) {this.$session.data.vqlContext.currentTable.columnName = columnName;}",
+            "this.$session.data.vqlContext = await VQL.getMinValueFromColumn(this);"
+          ],
+          "speech": {
+            "de": [
+              "Der kleinste Wert in Spalte ${$session.data.vqlContext.currentTable.columnName} ist ${$session.data.vqlContext.latestQueryResult}. "
+            ],
+            "en": [
+              "The smallest value in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. "
+            ]
+          },
+          "text": {
+            "de": [
+              "Der kleinste Wert in Spalte ${$session.data.vqlContext.currentTable.columnName} ist ${$session.data.vqlContext.latestQueryResult}. "
+            ],
+            "en": [
+              "The smallest value in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. "
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "AverageValueInColumnIntent": {
+          "phrases": {
+            "de": [
+              "Was ist der [durchschnittliche |mittlere |Mittel]Wert in Spalte {columnName}",
+              "[durchschnittlicher |mittlerer |Mittel]Wert [|in] Spalte {columnName}"
+            ],
+            "en": [
+              "What is the [average] value in [|column] {columnName}",
+              "[average] value [|in] [|column] {columnName}"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus. "],
+                  "en": ["Choose a table name first. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "NameOfAllColumnsIntent"
+                }
+              }
+            },
+            {
+              "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                  "en": ["The table is empty. "]
+                }
+              }
+            }
+          ],
+          "entities": {
+            "columnName": {
+              "type": "ColumnNameType",
+              "assert": [
+                {
+                  "condition": "columnName !== undefined && (this.$session.data.vqlContext.currentTable.columnNames).includes(columnName)",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["${ERROR_COLUMN_NAME_UNKNOWN}"],
+                      "en": ["${ERROR_COLUMN_NAME_UNKNOWN}"]
+                    },
+                    "delegate": {
+                      "component": "VqlAskColumnNameComponent",
+                      "continue": "AverageValueInColumnIntent"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "if(columnName!=undefined) {this.$session.data.vqlContext.currentTable.columnName = columnName;}",
+            "this.$session.data.vqlContext = await VQL.getAvgValueFromColumn(this);"
+          ],
+          "speech": {
+            "de": [
+              "Der durchschnittliche Wert in Spalte ${$session.data.vqlContext.currentTable.columnName} ist ${$session.data.vqlContext.latestQueryResult}. "
+            ],
+            "en": [
+              "The average value in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. "
+            ]
+          },
+          "text": {
+            "de": [
+              "Der durchschnittliche Wert in Spalte ${$session.data.vqlContext.currentTable.columnName} ist ${$session.data.vqlContext.latestQueryResult}. "
+            ],
+            "en": [
+              "The average value in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. "
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "SumOfValueInColumnIntent": {
+          "phrases": {
+            "de": [
+              "Was ist die [Summe|Summe [aller|der] Werte ] [in|von] [|Spalte] {columnName}",
+              "[Summe|Summe der Werte] [|in|von] [|Spalte] {columnName}"
+            ],
+            "en": [
+              "What is the [sum] [|value] in [|column] {columnName}",
+              "[sum] value [|in] [|column] {columnName}"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus. "],
+                  "en": ["Choose a table name first. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "NameOfAllColumnsIntent"
+                }
+              }
+            },
+            {
+              "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                  "en": ["The table is empty. "]
+                }
+              }
+            }
+          ],
+          "entities": {
+            "columnName": {
+              "type": "ColumnNameType",
+              "assert": [
+                {
+                  "condition": "columnName !== undefined && (this.$session.data.vqlContext.currentTable.columnNames).includes(columnName)",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["${ERROR_COLUMN_NAME_UNKNOWN}"],
+                      "en": ["${ERROR_COLUMN_NAME_UNKNOWN}"]
+                    },
+                    "delegate": {
+                      "component": "VqlAskColumnNameComponent",
+                      "continue": "SumOfValueInColumnIntent"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "if(columnName!=undefined) {this.$session.data.vqlContext.currentTable.columnName = columnName;}",
+            "this.$session.data.vqlContext = await VQL.getSumValueFromColumn(this);"
+          ],
+          "speech": {
+            "de": [
+              "Die Summe der Werte in Spalte ${$session.data.vqlContext.currentTable.columnName} ist ${$session.data.vqlContext.latestQueryResult}. "
+            ],
+            "en": [
+              "The sum of all values in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. "
+            ]
+          },
+          "text": {
+            "de": [
+              "Die Summe der Werte in Spalte ${$session.data.vqlContext.currentTable.columnName} ist ${$session.data.vqlContext.latestQueryResult}. "
+            ],
+            "en": [
+              "The sum of all values in column ${$session.data.vqlContext.currentTable.columnName} is ${$session.data.vqlContext.latestQueryResult}. "
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "NumberOfDistinctValuesInColumnIntent": {
+          "phrases": {
+            "de": [
+              "Wieviel [verschiedene|unterschiedliche] Werte [|gibt es] in [|Spalte] {columnName}",
+              "[|Anzahl|wie viele|Wieviel] [verschiedene|unterschiedliche] Werte [|gibt es] in [|Spalte] {columnName}",
+              "[wie viele|Wieviel] unterschiedliche {columnName} gibt es"
+            ],
+            "en": [
+              "How many [different|distinct] values are there in [|column] {columnName}",
+              "Number of [different|distinct] values [|in] [|column] {columnName}"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus. "],
+                  "en": ["Choose a table name first. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "NameOfAllColumnsIntent"
+                }
+              }
+            },
+            {
+              "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                  "en": ["The table is empty. "]
+                }
+              }
+            }
+          ],
+          "entities": {
+            "columnName": {
+              "type": "ColumnNameType",
+              "assert": [
+                {
+                  "condition": "columnName !== undefined && (this.$session.data.vqlContext.currentTable.columnNames).includes(columnName)",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["${ERROR_COLUMN_NAME_UNKNOWN}"],
+                      "en": ["${ERROR_COLUMN_NAME_UNKNOWN}"]
+                    },
+                    "delegate": {
+                      "component": "VqlAskColumnNameComponent",
+                      "continue": "NumberOfDistinctValuesInColumnIntent"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "if(columnName!=undefined) {this.$session.data.vqlContext.currentTable.columnName = columnName;}",
+            "this.$session.data.vqlContext = await VQL.getNumberOfDistinctValuesInColumn(this);"
+          ],
+          "speech": {
+            "de": [
+              "In Spalte ${$session.data.vqlContext.currentTable.columnName} gibt es ${$session.data.vqlContext.latestQueryResult} [unterschiedliche|verschiedene] Werte. "
+            ],
+            "en": [
+              "In column ${$session.data.vqlContext.currentTable.columnName} there are ${$session.data.vqlContext.latestQueryResult} different values. "
+            ]
+          },
+          "text": {
+            "de": [
+              "In Spalte ${$session.data.vqlContext.currentTable.columnName} gibt es ${$session.data.vqlContext.latestQueryResult} [unterschiedliche|verschiedene] Werte. "
+            ],
+            "en": [
+              "In column ${$session.data.vqlContext.currentTable.columnName} there are ${$session.data.vqlContext.latestQueryResult} different values. "
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "SelectStatementIntent": {
+          "phrases": {
+            "de": [
+              "{selectSynonym} [|alle|die] {rowSynonym} [| [FROM|von der Tabelle] {tableName} ] [WHERE|wo|bei denen] [|Spalte|der Wert [| von Spalte ] ]  {filterColumnName} {comparator} [|der Wert|dem Wert|mit dem Wert] [{integerNumber}|{someString}] ist ",
+              "{selectSynonym} [|alle|die] {rowSynonym} [| [FROM|von der Tabelle] {tableName} ] mit [|einem Wert von|dem Wert]   [|Spalte] {filterColumnName} {comparator} [|der Wert|dem Wert|mit dem Wert] [{integerNumber}|{someString}]",
+
+              "{selectSynonym} {projectionColumnName} [| [FROM|von der Tabelle] {tableName} ] [WHERE|wo|bei denen] [|Spalte|der Wert [| von Spalte] ] {filterColumnName} {comparator} [|der Wert|dem Wert|mit dem Wert] [{integerNumber}|{someString}] ist ",
+              "{selectSynonym} [|alle|die] {projectionColumnName} [| [FROM|von der Tabelle] {tableName} ] mit [|einem Wert von|dem Wert]   [|Spalte] {filterColumnName} {comparator} [|der Wert|dem Wert|mit dem Wert] [{integerNumber}|{someString}]",
+
+              "{selectSynonym} [stern|sternchen|STAR] [| [FROM|von der Tabelle] {tableName} ] [WHERE|wo|bei denen] [|Spalte|der Wert [| von Spalte ] ] {filterColumnName} {comparator} [|der Wert|dem Wert|mit dem Wert] [{integerNumber}|{someString}] ist ",
+              "{selectSynonym} [stern|sternchen|STAR] [| [FROM|von der Tabelle] {tableName} ] mit [|einem Wert von|dem Wert]   [|Spalte] {filterColumnName} {comparator} [|der Wert|dem Wert|mit dem Wert] [{integerNumber}|{someString}]"
+            ],
+            "en": [
+              "{selectSynonym} [|all] {rowSynonym} WHERE  [|the value of] [|column] {filterColumnName} {comparator} [{integerNumber}|{someString}]",
+              "{selectSynonym} [|the value of] [|column] {filterColumnName} {comparator} [{integerNumber}|{someString}]"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus und formuliere Deine Abfrage dann erneut. "],
+                  "en": ["Choose a table name first and then rephrase your query. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "MetadataReportIntent"
+                }
+              }
+            },
+            {
+              "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                  "en": ["The table is empty. "]
+                }
+              }
+            }
+          ],
+          "entities": {
+            "selectSynonym": {
+              "type": "SelectSynonymType"
+            },
+            "rowSynonym": {
+              "type": "RowSynonymType"
+            },
+            "projectionColumnName": {
+              "type": "ColumnNameType",
+              "assert": [
+                {
+                  "condition": "VQL.hasTable(this) || (projectionColumnName !== undefined && (this.$session.data.vqlContext.currentTable.columnNames).includes(projectionColumnName))",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["${ERROR_COLUMN_NAME_UNKNOWN}"],
+                      "en": ["${ERROR_COLUMN_NAME_UNKNOWN}"]
+                    }
+                  }
+                }
+              ]
+            },
+            "tableName": {
+              "type": "TableNameType"
+            },
+            "filterColumnName": {
+              "type": "ColumnNameType",
+              "assert": [
+                {
+                  "condition": "filterColumnName !== undefined && (this.$session.data.vqlContext.currentTable.columnNames).includes(filterColumnName)",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["${ERROR_COLUMN_NAME_UNKNOWN}"],
+                      "en": ["${ERROR_COLUMN_NAME_UNKNOWN}"]
+                    }
+                  }
+                }
+              ]
+            },
+            "comparator": {
+              "type": "ComparatorType"
+            },
+            "integerNumber": {
+              "type": {
+                "alexa": "AMAZON.NUMBER",
+                "googleAssistant": "actions.type.Number",
+                "nlpjs": "IntegerNumberType",
+                "snips": "snips/number"
+              }
+            },
+            "someString": {
+              "type": {
+                "alexa": "FreeTextType",
+                "googleAssistant": "actions.type.FreeText",
+                "nlpjs": "FreeTextType",
+                "snips": "FreeTextType"
+              }
+            }
+          },
+          "native": [
+            "// select vorname von tabelle vornamen where anzahl groesser als zwei",
+            "this.$request.filterColumn =  this.$entities?.filterColumnName?.resolved;",
+            "if(tableName!==undefined) {await VQL.setCurrentTable(this, tableName);}",
+
+            "this.$session.data.vqlContext.currentTable.projectionColumnNames = projectionColumnName === undefined ? undefined : [projectionColumnName];",
+            "this.$session.data.vqlContext.currentTable.filterColumn = filterColumnName;",
+            "this.$session.data.vqlContext.currentTable.comparator = comparator;",
+
+            "const fallbackComparator = this.$entities.comparator_0?.resolved;",
+            "if(this.$session.data.vqlContext.currentTable.comparator===undefined) {this.$session.data.vqlContext.currentTable.comparator=fallbackComparator }",
+
+            "if(integerNumber !== undefined) {this.$session.data.vqlContext.currentTable.filterValue = integerNumber;}",
+            "if(someString !== undefined) {this.$session.data.vqlContext.currentTable.filterValue = someString;}",
+
+            "this.$session.data.vqlContext.currentTable.rowNumber = 1;",
+
+            "return this.readCurrentRowIntent();"
+          ]
+        },
+
+        "SetProjectionIntent": {
+          "phrases": {
+            "de": [
+              "projiziere auf [|werte in] [|spalte] {projectionColumnName} ",
+              "{selectSynonym} [|nur|ausschließlich|lediglich] [|werte in] [|spalte] {projectionColumnName} ",
+              "[|und] was steht [in|in der spalte|in [feld|spalte]]  {projectionColumnName}",
+              "[|und] was ist der Wert [für|von] {projectionColumnName}",
+              "[lese|lies] [|mir] [|nur|ausschließlich|lediglich] [|den inhalt von] [|spalte|feld] {projectionColumnName} [|vor]",
+              "[lese|lies] [|mir] [|nur|ausschließlich|lediglich] [|[werte|inhalte] von] [|der spalte|dem feld] {projectionColumnName} [|vor]"
+            ],
+            "en": [
+              "{selectSynonym} [|only] values from [|column] {projectionColumnName}",
+              "read contents from column {projectionColumnName}"
+            ]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus und formuliere Deine Abfrage dann erneut. "],
+                  "en": ["Choose a table name first and then rephrase your query. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "SetProjectionIntent"
+                }
+              }
+            },
+            {
+              "condition": "this.$session.data.vqlContext.currentTable.numOfRows > 0",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Die Tabelle [ist leer| hat keine Einträge]. "],
+                  "en": ["The table is empty. "]
+                }
+              }
+            }
+          ],
+          "entities": {
+            "selectSynonym": {
+              "type": "SelectSynonymType"
+            },
+            "projectionColumnName": {
+              "type": "ColumnNameType",
+              "assert": [
+                {
+                  "condition": "VQL.hasTable(this) || (projectionColumnName !== undefined && (this.$session.data.vqlContext.currentTable.columnNames).includes(projectionColumnName))",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["${ERROR_COLUMN_NAME_UNKNOWN}"],
+                      "en": ["${ERROR_COLUMN_NAME_UNKNOWN}"]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "this.$session.data.vqlContext.currentTable.projectionColumnNames = projectionColumnName === undefined ? undefined : [projectionColumnName];",
+            "this.$session.data.vqlContext.currentTable.rowNumber = 1;",
+            "return this.readCurrentRowIntent();"
+          ]
+        },
+
+        "ResetProjectionIntent": {
+          "phrases": {
+            "de": [
+              "lies die ganze zeile",
+              "zeige [|wieder] alle spalten",
+              "lösche [|die] projektion",
+              "setze [|die] projektion zurück"
+            ],
+            "en": ["show all columns again", "reset projection"]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus und formuliere Deine Abfrage dann erneut. "],
+                  "en": ["Choose a table name first and then rephrase your query. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "ResetProjectionIntent"
+                }
+              }
+            }
+          ],
+          "native": [
+            "this.$session.data.vqlContext.currentTable.projectionColumnNames = undefined;",
+            "return this.readCurrentRowIntent();"
+          ]
+        },
+
+        "SetFilterIntent": {
+          "phrases": {
+            "de": [
+              "[setze Filter [|auf]|filtere [auf|nach]] {filterColumnName} {comparator} [{integerNumber}|{someString}]",
+              "und mit [|Filter|Einschränkung] {filterColumnName} {comparator} [{integerNumber}|{someString}]",
+              "wähle {rowSynonym} mit {filterColumnName} {comparator} [{integerNumber}|{someString}]"
+            ],
+            "en": ["set filter to {filterColumnName} {comparator} [{integerNumber}|{someString}] "]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus und formuliere Deine Abfrage dann erneut. "],
+                  "en": ["Choose a table name first and then rephrase your query. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "SetFilterIntent"
+                }
+              }
+            }
+          ],
+          "entities": {
+            "filterColumnName": {
+              "type": "ColumnNameType",
+              "assert": [
+                {
+                  "condition": "filterColumnName !== undefined && (this.$session.data.vqlContext.currentTable.columnNames).includes(filterColumnName)",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["${ERROR_COLUMN_NAME_UNKNOWN}"],
+                      "en": ["${ERROR_COLUMN_NAME_UNKNOWN}"]
+                    }
+                  }
+                }
+              ]
+            },
+            "rowSynonym": {
+              "type": "RowSynonymType"
+            },
+            "comparator": {
+              "type": "ComparatorType"
+            },
+            "integerNumber": {
+              "type": {
+                "alexa": "AMAZON.NUMBER",
+                "googleAssistant": "actions.type.Number",
+                "nlpjs": "IntegerNumberType",
+                "snips": "snips/number"
+              }
+            },
+            "someString": {
+              "type": {
+                "alexa": "FreeTextType",
+                "googleAssistant": "actions.type.FreeText",
+                "nlpjs": "FreeTextType",
+                "snips": "FreeTextType"
+              }
+            }
+          },
+          "native": [
+            "this.$request.filterColumn =  this.$entities?.filterColumnName?.resolved;",
+
+            "//this.$session.data.vqlContext.currentTable.projectionColumnNames = projectionColumnName === undefined ? undefined : [projectionColumnName];",
+            "this.$session.data.vqlContext.currentTable.filterColumn = filterColumnName;",
+            "this.$session.data.vqlContext.currentTable.comparator = comparator;",
+
+            "const fallbackComparator = this.$entities.comparator_0?.resolved;",
+            "if(this.$session.data.vqlContext.currentTable.comparator===undefined) {this.$session.data.vqlContext.currentTable.comparator=fallbackComparator }",
+
+            "if(integerNumber !== undefined) {this.$session.data.vqlContext.currentTable.filterValue = integerNumber;}",
+            "if(someString !== undefined) {this.$session.data.vqlContext.currentTable.filterValue = someString;}",
+
+            "this.$session.data.vqlContext.currentTable.rowNumber = 1;",
+
+            "return this.readCurrentRowIntent();"
+          ]
+        },
+
+        "ReadCurrentFilterIntent": {
+          "phrases": {
+            "de": [
+              "lies den [|aktuellen] Filter",
+              "lies die [|aktuelle] Filtereinstellung",
+              "was ist der [|aktuelle] Filter",
+              "was ist die [|aktuelle] Filtereinstellung"
+            ],
+            "en": ["read current filter"]
+          },
+          "assert": [
+            {
+              "condition": "VQL.hasTable(this)",
+              "onAssertionFailed": {
+                "assertionFailedSpeech": {
+                  "de": ["Wähle erst eine Tabelle aus und formuliere Deine Abfrage dann erneut. "],
+                  "en": ["Choose a table name first and then rephrase your query. "]
+                },
+                "delegate": {
+                  "component": "VqlAskTableNameComponent",
+                  "continue": "ReadCurrentFilterIntent"
+                }
+              }
+            }
+          ],
+          "native": [
+            "this.$request.conditionUtterance = VQL.prepareConditionDescriptionUtterance(this.$session.data.vqlContext, this.$t('LOCALIZED_COMPARATOR'));"
+          ],
+          "speech": {
+            "de": [
+              "${$request.conditionUtterance == '' ? 'aktuell ist kein Filter gesetzt' : 'Aktueller Filter: ' + $request.conditionUtterance}"
+            ],
+            "en": [
+              "${$request.conditionUtterance == '' ? 'no filter defined' : 'Current filter:: ' + $request.conditionUtterance}"
+            ]
+          },
+          "text": {
+            "de": [
+              "${$request.conditionUtterance == '' ? 'aktuell ist kein Filter gesetzt' : 'Aktueller Filter: ' + $request.conditionUtterance}"
+            ],
+            "en": [
+              "${$request.conditionUtterance == '' ? 'no filter defined' : 'Current filter:: ' + $request.conditionUtterance}"
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          }
+        },
+
+        "ResetFilterIntent": {
+          "phrases": {
+            "de": [
+              "[entferne|lösche] [|den] filter",
+              "[entferne|lösche] [|die] filtereinstellungen",
+              "[filter|filtereinstellungen] [löschen|entfernen]",
+              "setze [|den] filter zurück",
+              "setze [|die] filtereinstellungen zurück"
+            ],
+            "en": ["[delete|remove|reset] filter"]
+          },
+          "native": [
+            "this.$session.data.vqlContext.currentTable.filterColumn = undefined;",
+            "this.$session.data.vqlContext.currentTable.comparator = undefined;",
+            "this.$session.data.vqlContext.currentTable.filterValue = undefined;",
+            "this.$session.data.vqlContext.currentTable.rowNumber = 1;",
+            "return this.readCurrentRowIntent();"
+          ]
+        },
+
+        "DropDeleteUpdateIntent": {
+          "phrases": {
+            "de": [
+              "Drop [table|database] [|{tableName}]",
+              "Delete [|column|row|table|database] [|{columnName}|{tableName}]",
+              "Update [|column|row|table|database] [|{columnName}|{tableName}]",
+              "Lösche [|spalte|tabelle|datenbank|column|row|table|database] [|{columnName}|{tableName}]",
+              "Lösche alle daten",
+              "Entferne [|spalte|tabelle|datenbank|alle daten|column|row|table|database] [|{columnName}|{tableName}]"
+            ],
+            "en": [
+              "Drop [table|database] [|{tableName}]",
+              "Delete [|column|row|table|database] [|{columnName}|{tableName}]",
+              "Update [|column|row|table|database] [|{columnName}|{tableName}]",
+              "Remove [|column|row|table|database] [|{columnName}|{tableName}]"
+            ]
+          },
+          "entities": {
+            "tableName": {
+              "type": "TableNameType"
+            },
+            "columnName": {
+              "type": "ColumnNameType"
+            }
+          },
+          "native": [" //console.log(columnNumber);", "// console.log(quickReplies);"],
+          "speech": {
+            "de": ["Das Löschen oder Verändern von Daten per Sprachbefehl ist nicht möglich. "],
+            "en": ["Delete or Update via voice is not supported. "]
+          },
+          "text": {
+            "de": ["Das Löschen oder Verändern von Daten per Sprachbefehl ist nicht möglich. "],
+            "en": ["Delete or Update via voice is not supported. "]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "RepeatIntent": {
+          "alexa": {
+            "name": "AMAZON.RepeatIntent"
+          },
+          "phrases": {
+            "de": ["nochmal", "wie bitte", "sag das noch einmal", "kann ich das noch einmal hören"],
+            "en": ["again", "pardon", "say this again"]
+          }
+        },
+
+        "ThanksIntent": {
+          "phrases": {
+            "de": ["danke", "dankeschön", "vielen dank"],
+            "en": ["thanks", "thank you [|very much]"]
+          },
+          "speech": {
+            "de": ["[ Bitte! | Bitte sehr! | Bitteschön! | Gerne geschehen! ]"],
+            "en": ["[ You are welcome! | Welcome!]"]
+          },
+          "text": {
+            "de": ["[ Bitte! | Bitte sehr! | Bitteschön! | Gerne geschehen! ]"],
+            "en": ["[ You are welcome! | Welcome!]"]
+          },
+          "reprompt": {
+            "de": ["Was magst Du nun machen? Frage zum Beispiel nach Hilfe. "],
+            "en": ["What do you want to do know? You may ask for help. "]
+          }
+        },
+
+        "BadWordIntent": {
+          "phrases": {
+            "de": [
+              "[|du] [dumpfbacke|idiot|dumme nuss]",
+              "du bist [|so] [dumm|dämlich|peinlich|blöde|blöd]"
+            ],
+            "en": ["idiot", "you are so dumb"]
+          },
+          "speech": {
+            "de": [
+              "[ Das ist nicht nett von Dir. | Selber! | Dann guck erst mal in den Spiegel, bevor Du so etwas sagst! ]"
+            ],
+            "en": ["[ This is not nice! | Mind your language! ]"]
+          },
+          "text": {
+            "de": [
+              "[ Das ist nicht nett von Dir. | Selber! | Dann guck erst mal in den Spiegel, bevor Du so etwas sagst! ]"
+            ],
+            "en": ["[ This is not nice! | Mind your language! ]"]
+          },
+          "reprompt": {
+            "de": ["Was magst Du nun machen? Frage zum Beispiel nach Hilfe. "],
+            "en": ["What do you want to do know? You may ask for help. "]
+          }
+        },
+
+        "StopIntent": {
+          "alexa": {
+            "name": "AMAZON.StopIntent"
+          },
+          "dialogFlow": {
+            "events": [
+              {
+                "name": "actions_intent_CANCEL"
+              }
+            ]
+          },
+          "phrases": {
+            "de": ["Stop", "Stopp"],
+            "en": ["Stop", "Stopp"]
+          },
+          "speech": {
+            "de": ["Auf Wiedersehen"],
+            "en": ["Good Bye"]
+          },
+          "text": {
+            "de": ["Auf Wiedersehen"],
+            "en": ["Good Bye"]
+          }
+        },
+
+        "CancelIntent": {
+          "alexa": {
+            "name": "AMAZON.CancelIntent"
+          },
+          "phrases": {
+            "de": ["Abbrechen"],
+            "en": ["Cancel"]
+          },
+          "speech": {
+            "de": ["Auf Wiedersehen"],
+            "en": ["Good Bye"]
+          },
+          "text": {
+            "de": ["Auf Wiedersehen"],
+            "en": ["Good Bye"]
+          }
+        },
+
+        "HelpIntent": {
+          "alexa": {
+            "name": "AMAZON.HelpIntent"
+          },
+          "phrases": {
+            "de": [
+              "[|ich brauche] [Hilfe|Unterstützung]",
+              "wie funktioniert das",
+              "wie geht das hier",
+              "Was nun",
+              "Was kann ich [|hier] machen",
+              "Keine Ahnung",
+              "ich weiß nicht",
+              "ich weiss nicht",
+              "help"
+            ],
+            "en": ["Help", "what now", "what can i do [|now]", "No clue"]
+          },
+          "speech": {
+            "de": ["Frage zum Beispiel nach den Metadaten"],
+            "en": ["You may ask for metadata"]
+          },
+          "text": {
+            "de": ["Frage zum Beispiel nach den Metadaten"],
+            "en": ["You may ask for metadata"]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": ["Hilfe", "Wähle tabelle Vornamen", "Metadata", "wieviel zeilen", "status"],
+            "en": ["Help", "Restart", "Test"]
+          }
+        },
+        "StartOverIntent": {
+          "alexa": {
+            "name": "AMAZON.StartOverIntent"
+          },
+          "phrases": {
+            "de": ["von vorne", "neustart", "beginne erneut"],
+            "en": ["from beginning", "restart", "reset [|application]"]
+          }
+        }
+      },
+
+      "alexa": {
+        "interactionModel": {
+          "languageModel": {
+            "intents": []
+          }
+        }
+      },
+
+      "entityTypes": {
+        "PaymentType": {
+          "values": {
+            "de": "${PaymentTypeArray}",
+            "en": "${PaymentTypeArray}"
+          }
+        },
+        "myCityEntityType": {
+          "values": {
+            "de": [
+              "Berlin",
+              {
+                "value": "New York",
+                "id": "nyc",
+                "synonyms": ["Big Apple"]
+              },
+              "München"
+            ],
+            "en": ["Berlin", "New York", "Munich"]
+          }
+        },
+        "IntegerNumberType": {
+          "values": {
+            "de": [
+              {
+                "value": "1",
+                "id": "1",
+                "synonyms": ["1", "eins", "erste", "erster"]
+              },
+              {
+                "value": "2",
+                "id": "2",
+                "synonyms": ["2", "zwei", "zweite", "zweiter"]
+              },
+              {
+                "value": "3",
+                "id": "3",
+                "synonyms": ["3", "drei", "dritte", "dritter"]
+              },
+              {
+                "value": "4",
+                "id": "4",
+                "synonyms": ["4", "vier", "vierter", "vierte"]
+              }
+            ],
+            "en": [
+              {
+                "value": "1",
+                "id": "1",
+                "synonyms": ["1", "one", "first"]
+              },
+              {
+                "value": "2",
+                "id": "2",
+                "synonyms": ["2", "two", "second"]
+              },
+              {
+                "value": "3",
+                "id": "3",
+                "synonyms": ["3", "three", "third"]
+              },
+              {
+                "value": "4",
+                "id": "4",
+                "synonyms": ["4", "four", "fourth"]
+              }
+            ]
+          }
+        },
+        "FreeTextType": {
+          "values": {
+            "de": [
+              "frank",
+              "${VornamenBezirkType}",
+              "${VornamenGeschlechtType}",
+              "${VornamenVornameType}",
+              "${GriechischBuchstabeType}"
+            ],
+            "en": [
+              "frank",
+              "${VornamenBezirkType}",
+              "${VornamenGeschlechtType}",
+              "${VornamenVornameType}",
+              "${GriechischBuchstabeType}"
+            ]
+          }
+        },
+        "ColumnNameType": {
+          "values": {
+            "de": "${AllColumnNamesList}",
+            "en": "${AllColumnNamesList}"
+          }
+        },
+        "TableNameType": {
+          "values": {
+            "de": "${TableNameList}",
+            "en": "${TableNameList}"
+          }
+        },
+        "SortOrderType": {
+          "values": {
+            "de": [
+              {
+                "value": "asc",
+                "id": "asc",
+                "synonyms": ["ascending", "aufsteigend", "kleine werte zuerst"]
+              },
+              {
+                "value": "desc",
+                "id": "desc",
+                "synonyms": ["descending", "absteigend", "große werte zuerst"]
+              }
+            ],
+            "en": [
+              {
+                "value": "asc",
+                "id": "asc",
+                "synonyms": ["ascending", "small values first"]
+              },
+              {
+                "value": "desc",
+                "id": "desc",
+                "synonyms": ["descending", "big values first"]
+              }
+            ]
+          }
+        },
+
+        "SelectSynonymType": {
+          "values": {
+            "de": [
+              {
+                "value": "SELECT",
+                "id": "SELECT",
+                "synonyms": [
+                  "select",
+                  "selekt",
+                  "selektiere",
+                  "projiziere",
+                  "finde",
+                  "[filter|filtere]",
+                  "[zeige|zeig|finde] [|mir]",
+                  "suche [mir|nach]",
+                  "suche"
+                ]
+              }
+            ],
+            "en": [
+              {
+                "value": "SELECT",
+                "id": "SELECT",
+                "synonyms": [
+                  "select",
+                  "filter",
+                  "search",
+                  "search for",
+                  "project",
+                  "show",
+                  "find",
+                  "show me"
+                ]
+              }
+            ]
+          }
+        },
+
+        "RowSynonymType": {
+          "values": {
+            "de": [
+              {
+                "value": "row",
+                "id": "row",
+                "synonyms": [
+                  "reihe",
+                  "reihen",
+                  "zeile",
+                  "zeilen",
+                  "werte",
+                  "eintrag",
+                  "einträge",
+                  "ergebnisse",
+                  "rows",
+                  "row",
+                  "line",
+                  "lines"
+                ]
+              }
+            ],
+            "en": [
+              {
+                "value": "row",
+                "id": "row",
+                "synonyms": [
+                  "row",
+                  "rows",
+                  "value",
+                  "values",
+                  "entry",
+                  "entries",
+                  "results",
+                  "line",
+                  "lines"
+                ]
+              }
+            ]
+          }
+        },
+        "ColumnSynonymType": {
+          "values": {
+            "de": [
+              {
+                "value": "column",
+                "id": "column",
+                "synonyms": ["spalte", "spalten", "column", "columns"]
+              }
+            ],
+            "en": [
+              {
+                "value": "column",
+                "id": "column",
+                "synonyms": ["column", "columns"]
+              }
+            ]
+          }
+        },
+        "ComparatorType": {
+          "values": {
+            "de": [
+              {
+                "value": "equal",
+                "id": "equal",
+                "synonyms": ["[|ist] [identisch|gleich] [|mit]", "entspricht", "equals"]
+              },
+              {
+                "value": "greater",
+                "id": "greater",
+                "synonyms": ["[|ist] [groesser|groeßer|grösser|größer] [|als]", "[|ist] mehr als"]
+              },
+              {
+                "value": "less",
+                "id": "less",
+                "synonyms": ["[|ist] kleiner [|als]", "weniger als", "kleiner"]
+              },
+              {
+                "value": "like",
+                "id": "like",
+                "synonyms": ["like", "so wie", "so ähnlich wie"]
+              }
+            ],
+            "en": [
+              {
+                "value": "equal",
+                "id": "equal",
+                "synonyms": ["is", "[|is] equal [|with]", "equals", "same as"]
+              },
+              {
+                "value": "greater",
+                "id": "greater",
+                "synonyms": ["greater than", "greater", "more than", "more as"]
+              },
+              {
+                "value": "less",
+                "id": "less",
+                "synonyms": ["smaller than", "smaller", "less than", "less as"]
+              },
+              {
+                "value": "like",
+                "id": "like",
+                "synonyms": ["like", "part of", "is in"]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "componentName": "VqlAskTableNameComponent",
+      "start": {
+        "startSpeech": {
+          "de": ["${ERROR_NO_TABLE_SELECTED_SPEECH}"],
+          "en": ["${ERROR_NO_TABLE_SELECTED_SPEECH}"]
+        },
+        "startText": {
+          "de": ["${ERROR_NO_TABLE_SELECTED_SPEECH}"],
+          "en": ["${ERROR_NO_TABLE_SELECTED_SPEECH}"]
+        },
+        "startReprompt": {
+          "de": ["${ERROR_NO_TABLE_SELECTED_SPEECH}"],
+          "en": ["${ERROR_NO_TABLE_SELECTED_SPEECH}"]
+        },
+        "startQuickReplies": {
+          "de": "${TableNameList}",
+          "en": ["INIT", "BETA"]
+        }
+      },
+      "intents": {
+        "SwitchToTableIntent": {
+          "phrases": {
+            "de": [
+              "[Wechsele|wechsle|wechsel] [zu der|zur] [Tabelle] [|mit dem Namen] {tableName}",
+              "Wähle [|die] [Tabelle] [|mit dem Namen] {tableName}",
+              "{tableName}"
+            ],
+            "en": [
+              "[select|choose|switch to] [|the] table [|with the name|named|labelled] {tableName}"
+            ]
+          },
+          "entities": {
+            "tableName": {
+              "type": "TableNameType",
+              "assert": [
+                {
+                  "condition": "tableName !== undefined",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": [
+                        "Du musst eine Tabelle auswählen. Zur [Auswahl|Verfügung] stehen ${join(TableNameList,', ',' und ')}."
+                      ],
+                      "en": [
+                        "You need to specify a table. You may choose one of ${join(TableNameList,', ',' and ')}."
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "// there may be another intent implementation with the same name in another component",
+            "this.$session.data.vqlContext = await VQL.setCurrentTable(this,tableName);"
+          ],
+          "onError": [
+            {
+              "condition": "error === undefined",
+              "errorSpeech": {
+                "de": "Etwas ist schief gegangen. Frage nach Hilfe. ",
+                "en": "Something went wrong. You may ask for help. "
+              }
+            },
+            {
+              "condition": "error.message === 'INVALID_TABLE_NAME'",
+              "errorSpeech": {
+                "de": "Eine Tabelle mit diesem Namen kenne ich nicht. Zur [Auswahl|Verfügung] stehen ${join(TableNameList,', ',' und ')}.",
+                "en": "I don't know this table. You may choose one of ${join(TableNameList,', ',' and ')}."
+              }
+            }
+          ],
+          "quickReplies": {
+            "de": "${TableNameList}",
+            "en": "${TableNameList}"
+          }
+        },
+
+        "NameOfAllTablesIntent": {
+          "phrases": {
+            "de": [
+              "[Wie [heißen|heissen] [deine|die] [Tabellen]|Welchen Namen haben die Tabellen|Bitte nenne mir die [Tabellen|Namen der Tabellen]]",
+              "Welche tabellen gibt es",
+              "Welche tabellen hast du"
+            ],
+            "en": ["Name the tables", "Name the table names", "What are the names of the tables"]
+          },
+          "native": ["this.$session.data.vqlContext = await VQL.getTableNames(this);"],
+          "speech": {
+            "de": [
+              "Die Namen der Tabellen lauten ${join($session.data.vqlContext.latestQueryResult,', ',' und ')}"
+            ],
+            "en": [
+              "The tables have the names ${join($session.data.vqlContext.latestQueryResult,', ',' and ')}"
+            ]
+          },
+          "text": {
+            "de": [
+              "Die Namen der Tabellen lauten ${join($session.data.vqlContext.latestQueryResult,', ',' und ')}"
+            ],
+            "en": [
+              "The tables have the names ${join($session.data.vqlContext.latestQueryResult,', ',' and ')}"
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": "${QUICK_REPLIES_ARRAY}"
+          }
+        },
+
+        "HelpIntent": {
+          "alexa": {
+            "name": "AMAZON.HelpIntent"
+          },
+          "phrases": {
+            "de": [
+              "[|ich brauche] [Hilfe|Unterstützung]",
+              "wie funktioniert das",
+              "wie geht das hier",
+              "Was nun",
+              "Was kann ich [|hier] machen",
+              "Keine Ahnung",
+              "ich weiss nicht"
+            ],
+            "en": ["Help", "what now", "what can i do [|now]", "No clue"]
+          },
+          "speech": {
+            "de": [
+              "Bitte wähle eine Tabelle aus, mit der Du arbeiten möchtest. Zur [Auswahl|Verfügung] stehen ${join(TableNameList,', ',' und ')}."
+            ],
+            "en": [
+              "Please select a table which you want to work with. You may choose one of ${join(TableNameList,', ',' and ')}."
+            ]
+          },
+          "text": {
+            "de": [
+              "Bitte wähle eine Tabelle aus, mit der Du arbeiten möchtest. Zur [Auswahl|Verfügung] stehen ${join(TableNameList,', ',' und ')}."
+            ],
+            "en": [
+              "Please select a table which you want to work with. You may choose one of ${join(TableNameList,', ',' and ')}."
+            ]
+          },
+          "reprompt": {
+            "de": [
+              "Versuche bitte folgendes: wähle eine Tabelle aus, mit der Du arbeiten möchtest. Zur [Auswahl|Verfügung] stehen ${join(TableNameList,', ',' und ')}."
+            ],
+            "en": [
+              "Please try this: select a table which you want to work with. You may choose one of ${join(TableNameList,', ',' and ')}."
+            ]
+          },
+          "quickReplies": {
+            "de": "${QUICK_REPLIES_ARRAY}",
+            "en": ["Help", "Restart", "Test"]
+          }
+        }
+      }
+    },
+    {
+      "componentName": "VqlAskColumnNameComponent",
+      "start": {
+        "startSpeech": {
+          "de": ["${ERROR_NO_COLUMN_SELECTED_SPEECH}"],
+          "en": ["${ERROR_NO_COLUMN_SELECTED_SPEECH}"]
+        },
+        "startText": {
+          "de": ["${ERROR_NO_COLUMN_SELECTED_SPEECH}"],
+          "en": ["${ERROR_NO_COLUMN_SELECTED_SPEECH}"]
+        },
+        "startReprompt": {
+          "de": ["${ERROR_NO_COLUMN_SELECTED_SPEECH}"],
+          "en": ["${ERROR_NO_COLUMN_SELECTED_SPEECH}"]
+        },
+        "startQuickReplies": {
+          "de": ["${$session.data.vqlContext.currentTable.columnNames}"],
+          "en": ["${$session.data.vqlContext.currentTable.columnNames}"]
+        }
+      },
+      "intents": {
+        "ChooseValidColumnNameIntent": {
+          "phrases": {
+            "de": [
+              "[|ich] wähle [|die] [Spalte] [|mit dem Namen] {columnName}",
+              "[|ich] wähle [|den] [Spaltennamen] {columnName}",
+              "[Nimm|Wähle] {columnName}",
+              "[nach|in der spalte|in spalte] {columnName}",
+              "{columnName}"
+            ],
+            "en": ["[switch to] [|the] column [|name] [|with the name|named|labelled] {columnName}"]
+          },
+          "entities": {
+            "columnName": {
+              "type": "ColumnNameType",
+              "assert": [
+                {
+                  "condition": "columnName !== undefined && (this.$session.data.vqlContext.currentTable.columnNames).includes(columnName)",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["${ERROR_COLUMN_NAME_UNKNOWN}"],
+                      "en": ["${ERROR_COLUMN_NAME_UNKNOWN}"]
+                    },
+                    "delegate": {
+                      "component": "VqlAskColumnNameComponent",
+                      "continue": "ChooseValidColumnNameIntent"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "if(columnName!=undefined) {this.$session.data.vqlContext.currentTable.sortColumn = columnName;}"
+          ],
+          "quickReplies": {
+            "de": ["${$session.data.vqlContext.currentTable.columnNames}"],
+            "en": ["${$session.data.vqlContext.currentTable.columnNames}"]
+          }
+        },
+
+        "NameOfAllColumnsIntent": {
+          "phrases": {
+            "de": [
+              "[Wie [heißen|heissen] die [Spalten|Spaltennamen]|Welchen Namen haben die Spalten|Bitte nenne mir die [Spaltennamen|Namen der Spalten]] [| von [|der] tabelle {tableName}]",
+              "Welche spalten gibt es",
+              "name columns",
+              "column names"
+            ],
+            "en": [
+              "Name [|the] columns [|from table {tableName}]",
+              "What are the names of the columns [|from table {tableName}]",
+              "column names"
+            ]
+          },
+          "entities": {
+            "tableName": {
+              "type": "TableNameType",
+              "assert": [
+                {
+                  "condition": "VQL.hasTable(this) || tableName !== undefined",
+                  "onAssertionFailed": {
+                    "assertionFailedSpeech": {
+                      "de": ["Wähle erst eine Tabelle. "],
+                      "en": ["Choose a table name first. "]
+                    },
+                    "delegate": {
+                      "component": "VqlAskTableNameComponent",
+                      "continue": "NameOfAllColumnsIntent"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "native": [
+            "if (tableName !== undefined) {this.$session.data.vqlContext = await VQL.setCurrentTable(this,tableName);}",
+            "this.$session.data.vqlContext = await VQL.getColumnNames(this);"
+          ],
+          "speech": {
+            "de": [
+              "Die Spalten von der Tabelle ${$session.data.vqlContext.currentTable.name} heißen ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' und ')}. "
+            ],
+            "en": [
+              "The columns of the table ${$session.data.vqlContext.currentTable.name} have the following names: ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. "
+            ]
+          },
+          "text": {
+            "de": [
+              "Die Spalten von der Tabelle ${$session.data.vqlContext.currentTable.name} heißen ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' und ')}. "
+            ],
+            "en": [
+              "The columns of the table ${$session.data.vqlContext.currentTable.name} have the following names: ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. "
+            ]
+          },
+          "reprompt": {
+            "de": ["Wie weiter"],
+            "en": ["What now"]
+          },
+          "quickReplies": {
+            "de": ["${$session.data.vqlContext.currentTable.columnNames}"],
+            "en": ["${$session.data.vqlContext.currentTable.columnNames}"]
+          }
+        },
+
+        "HelpIntent": {
+          "alexa": {
+            "name": "AMAZON.HelpIntent"
+          },
+          "phrases": {
+            "de": [
+              "[|ich brauche] [Hilfe|Unterstützung]",
+              "wie funktioniert das",
+              "wie geht das hier",
+              "Was nun",
+              "Was kann ich [|hier] machen",
+              "Keine Ahnung",
+              "ich weiss nicht"
+            ],
+            "en": ["Help", "what now", "what can i do [|now]", "No clue"]
+          },
+          "speech": {
+            "de": [
+              "Bitte wähle einen gültigen Spaltennamen aus. Zur [Auswahl|Verfügung] stehen ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' und ')}. "
+            ],
+            "en": [
+              "Please select a valid column name. You may choose one of ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. "
+            ]
+          },
+          "text": {
+            "de": [
+              "Bitte wähle einen gültigen Spaltennamen aus. Zur [Auswahl|Verfügung] stehen ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' und ')}. "
+            ],
+            "en": [
+              "Please select a valid column name. You may choose one of ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. "
+            ]
+          },
+          "reprompt": {
+            "de": [
+              "Versuche bitte folgendes: wähle einen gültigen Spaltennamen aus. Zur [Auswahl|Verfügung] stehen ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' und ')}. "
+            ],
+            "en": [
+              "Try this: select a valid column name. You may choose one of ${join($session.data.vqlContext.latestQueryResult.columnNames,', ',' and ')}. "
+            ]
+          },
+          "quickReplies": {
+            "de": ["${$session.data.vqlContext.currentTable.columnNames}"],
+            "en": ["${$session.data.vqlContext.currentTable.columnNames}"]
+          }
+        }
+      }
+    }
+  ]
+}

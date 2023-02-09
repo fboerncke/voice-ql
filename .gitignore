@@ -1,0 +1,11 @@
+node_modules/
+db/
+bundle/
+bundle.zip
+.env
+dist/
+build/
+package-lock.json
+.serverless/
+serverless.yaml
+SCRATCHPAD.md
