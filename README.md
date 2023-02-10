@@ -12,15 +12,13 @@ However, not everyone has equal access to these digital resources. Some segments
 
 But sometimes data itself is presented in a way which makes it inherently difficult to retrieve information from it for everybody. This is especially true for large data sets. They are often presented in tabular form.
 
-Without knowledge of database languages like SQL or without bein a master of Excel, it can be difficult to extract and understand information hidden in the data.
+Without knowledge of database languages like SQL or without being a master of Excel, it can be difficult to extract and understand information hidden in the data.
 
-Recognizing this challenge, the Voice-QL project has been launched to address the issue. The project aims to develop a voice assistant that provides a more accessible way of accessing databases. The voice assistant will be programmed to respond to voice commands, allowing users to navigate through the contents of the database without the need to touch a screen or keyboard.
+Recognizing this challenge, the Voice-QL project has been launched to address the issue. The project aims to develop a dialog model for voice assistants that can then provide a more accessible way retrieving information from databases. The voice assistant responds to süpoken or typed voice commands, allowing users to navigate through the contents of the database without the need to touch a screen or keyboard.
 
-In short: Voice-Ql is designed to address the challenge of accessing data and making it more accessible for everyone by using natural language as an interface.
+**In other words**: Voice-Ql is designed to address the challenge of accessing data and making it more accessible for everyone by using natural language as an interface.
 
 Not only will Voice-QL make information more accessible for individuals, but it will also give organizations and individuals who contribute information to open data a new tool to reach a wider audience.
-
-For those interested: you may want to have a look at the [official project description](https://prototypefund.de/project/voice-ql-datentabellen-mit-gesprochener-sprache-barrierefrei-erkunden/) page which is hosted on the PrototypeFund website (German).
 
 ## Overview
 
@@ -37,11 +35,11 @@ classDef VQLspecific fill:#F3DC61,stroke:#333,stroke-width:1px
 class VOICEQL VQLspecific
 ```
 
-The diagram illustrates how the Voice-QL project is transforming table data into a voice-based interface for accessing information. We will go into more detail more below in this text.
+The diagram illustrates how the Voice-QL project is transforming table data into a voice-based interface for accessing information. We will find a more image more below in this text.
 
 ## Example Dialogues based on real world data
 
-Let us start with an example and get into the details later:
+Let us start with some examples of how a dialogue with the Voice QL may look like:
 
 ### Test data
 
@@ -413,19 +411,9 @@ The following features would be _nice to have_ but they were out of focus in thi
 - Neither `group by` nor `having`
 - No range queries "_find between x and y_"
 
-## Appendix
+## Test data files
 
-### Further reading
-
-When defining your voice model it is important to know and respect the rules and limitations from a target platform. Therefore the following might be wort a read:
-
-- Alexa platform: "Rules for sample utterances":
-
-  https://developer.amazon.com/en-US/docs/alexa/custom-skills/create-intents-utterances-and-slots.html#h3_intentref_rules
-
-### Some Simple Example Files
-
-During testing we used a number of data files available as Open Data:
+For your own experiments you might need some test data from some Open Data repository. Here are some suggestions which all come with different challenges when you want to make them accessible via voice:
 
 - Vornamen in Berlin Mitte:
   https://raw.githubusercontent.com/berlinonline/haeufige-vornamen-berlin/master/data/cleaned/2021/mitte.csv
@@ -439,11 +427,21 @@ During testing we used a number of data files available as Open Data:
 - Bundestagswahl 2021 Ergebnisse
   https://daten.berlin.de/datensaetze/bundestagswahl-2021-berlin-nach-wahlbezirken-endg%C3%BCltiges-ergebnis
 
-### Bibliography
+## Appendix / Further Reading / References / Bibliography
 
-For futher reading you might find the following resources useful:
+### Prototype Fund Voice QL homepage
 
-#### Title: Speech to SQL Generator-A Voice Based Approach
+You may want to have a look at the [official project description](https://prototypefund.de/project/voice-ql-datentabellen-mit-gesprochener-sprache-barrierefrei-erkunden/) page which is hosted on the PrototypeFund website (German).
+
+### Example for guide lines on how to design a Voice Model
+
+When defining your voice model it is important to know and respect the rules and limitations from a target platform. Therefore the following might be wort a read:
+
+- Alexa platform: "Rules for sample utterances":
+
+  https://developer.amazon.com/en-US/docs/alexa/custom-skills/create-intents-utterances-and-slots.html#h3_intentref_rules
+
+### Title: Speech to SQL Generator-A Voice Based Approach
 
 **Filename**: "706-01.pdf"
 
@@ -467,7 +465,7 @@ For futher reading you might find the following resources useful:
 
 **One sentence summary**: An Alexa skill in English supporting a dialog which allows to narrow down the result set incrementaly.
 
-#### NLTSQLLC
+### NLTSQLLC
 
 **Title**: "An algorithm to transform natural language into SQL queries for relational databases"
 
@@ -490,7 +488,7 @@ Source: https://arxiv.org/pdf/1709.00103.pdf
 
 **One sentence summary**: With support of crowd workers a lot of NL queries are mapped to matching SQL queries.
 
-#### Title: Learning a Neural Semantic Parser from User Feedback
+### Title: Learning a Neural Semantic Parser from User Feedback
 
 **Filename**: "1704.08760.pdf"
 
@@ -500,7 +498,7 @@ Source: https://arxiv.org/pdf/1709.00103.pdf
 
 **One sentence summary**: User feedback allows to improve mapping from NL to SQL in iterations.
 
-#### Title: DBPal: An End-to-end Neural Natural Language Interface for Databases
+### Title: DBPal: An End-to-end Neural Natural Language Interface for Databases
 
 **Filename**: 1804.00401.pdf
 
@@ -512,7 +510,7 @@ Source: https://arxiv.org/pdf/1709.00103.pdf
 
 **One sentence summary**: Chat interface for NL to SQL converter, results are presented as text in a table.
 
-#### NLSQL
+### NLSQL
 
 **Video**: Video shows chatbot like user interface
 **Source**: https://www.nlsql.com/
@@ -530,7 +528,7 @@ copy available in archive.org: https://www.aiqudo.com/2021/01/28/the-rise-of-voi
 
 **One sentence summary**: Company offers to use schema information and synonyms provided by the customer to build a customer specific solution that enables the end user to retrieve informaton from a database via natural language requests, that are translated into e.g. SQL.
 
-#### Title: Advanced Voice Control Platform
+### Title: Advanced Voice Control Platform
 
 **Source**: https://www.voicecode.io/
 
