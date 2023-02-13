@@ -258,7 +258,7 @@ class CHATBOT VQLspecific
 class SNIPS VQLspecific
 ```
 
-The **Voice-QL** system appears as a framework for developing voice applications. It imports a standard relational databases table container using SQLite format as a file, which is then processed by the Magic Prototyper Jovo Plugin. This plugin is both an interpreter and generator that hooks seamlessly into the Jovo build process. The Voice-QL system uses the Magic Prototyper Code generator and the Magic Prototyper Model generator to generate all the necessary code and model files for the Jovo framework.
+The **Voice-QL** system appears as a framework for developing voice applications. It imports a standard relational databases table container using SQLite format as a file, which is then processed by the [Magic Prototyper Jovo Plugin](https://github.com/fboerncke/jovo-v4-community-hook-magic-prototyper) which has been implermented during this project too. This plugin is both an interpreter and generator that hooks seamlessly into the Jovo build process. The Voice-QL system uses the Magic Prototyper to generate all the necessary code and model files for the Jovo framework.
 
 The **backend adapter** handles database access and evaluates queries according to the dialogue state.
 
@@ -363,27 +363,42 @@ As next steps you can checkout and run the following projects:
   This project is where the magic happens. Change the settings in this project and the Voice-QL application will take care of building a testable application/prototype. This is what you might want to do:
 
   - replace the configured Sqlite file with your database file of choice
-  - Adjust the Magic Prototyper config file (you may use Spintax and JEXL expressions)
+  - Adjust the [Magic Prototyper](https://github.com/fboerncke/jovo-v4-community-hook-magic-prototyper) configuration file (you may use Spintax and JEXL expressions)
   - run the command `jovo build:platform alexa` and follow the instructions
 
-  In case jovo is running the system will detect file changes automatically and recompile whatever is necessary. Changes in the Magic Prototyper config file require another `jovo build:platform alexa`
+  In case jovo is running the system will detect file changes automatically and recompile whatever is necessary. Changes in the Magic Prototyper configuration file require another run of `jovo build:platform alexa`.
 
   In case you want to enforce a recompile step manually then type: `npm run tsc`
 
 - **optional**: Voice-QL-Vue-Client-Chatbot
 
-  If preconfigured accordingly then Voice-QL will generate the code for a web application based on Vue which allows to run the dialogs via a chatbot like interface.
-
-  This demo application will show the SQL statements that have been build automatically to answer the user request. The following screen shot shows you the look and feel:
-
-  ```
-  mkdir voice-ql-vue-chatbot
-  git clone ...
-  npm install
-  -run-
-  ```
+  Voice-QL comes with a ready to use webapp that can by used to *chat* with a table via written commands. This application will show the SQL statements that have been build automatically to answer the user request. The following screen shot shows you the look and feel:
 
   [![Chatbot](./resources/screenshot-web-client.png)](https://www.bmbf.de/)
+
+  How to setup:
+
+  1. Preparation: Start **Snips NLU** and **Voice-QL** as described above. The chatbot will use them as backend.
+
+  2. Checkout, build and start the chatbot:  
+
+      ```
+      mkdir voice-ql-vue-chatbot
+      git clone ...
+      npm install
+      npm run serve
+      ```
+
+  3. If you experience problems when launching and see error messsages related to SSL this may be because of a newer node version. The following environment setting should help you in that case:
+
+      ```
+      export NODE_OPTIONS=--openssl-legacy-provider
+      ```
+
+      Then run `npm run serve` again.
+
+  4. Now use your local browser and navigate to the address shown in the console window, e.g.  `http://localhost:8080/` and follow the instructions on the screen.
+
 
 - **optional**: Voice-QL-Vue-Client-Talk (work with Chrome only)
 

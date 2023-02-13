@@ -1,5 +1,7 @@
 import { GoogleAssistantPlatform } from '@jovotech/platform-googleassistant';
 import { AlexaPlatform } from '@jovotech/platform-alexa';
+import { WebPlatform } from '@jovotech/platform-web';
+import { SnipsNlu } from '@jovotech/nlu-snips';
 import { App } from '@jovotech/framework';
 import { SpintaxOutputPlugin } from 'jovo-v4-community-plugin-spintax-output';
 import { JexlOutputPlugin } from 'jovo-v4-community-plugin-jexl-output';
@@ -64,6 +66,24 @@ const app = new App({
   |
   */
   plugins: [
+    // https://www.jovo.tech/marketplace/platform-web#web-platform-and-core-platform
+    new WebPlatform({
+      plugins: [
+        new SnipsNlu({
+          serverUrl: 'http://172.17.0.2:5001/',
+          serverPath: '/engine/parse',
+          engineId: 'voice-ql',
+          fallbackLanguage: 'de'
+        })
+        /*        new NlpjsNlu({
+              languageMap: {
+                en: LangEn,
+                de: LangDe,
+              },
+            }),*/
+      ]
+    }),
+
     // @see https://www.jovo.tech/marketplace/platform-googleassistant
     new GoogleAssistantPlatform(),
 
