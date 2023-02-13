@@ -306,6 +306,14 @@ Three component implementations refering to the constants defined above:
 
 Jovo makes voice application development so much easier, especially if you taget various platforms with your use case. But even if you only build for one platform then you will experience much faster turnaround times during development compared to the development process normally used when you build for voice assistants.
 
+Find out more here:
+
+- [Jovo Website](https://jovo.tech/)
+- [Documentation](https://jovo.tech/docs/)
+- [Marketplace](https://www.jovo.tech/marketplace/)
+- [Twitter](https://twitter.com/jovotech/)
+- [Forum](https://community.jovo.tech/)
+
 ### Hooks/Plugins built during this project
 
 Wherever it made sense we implemented domain independent functionality using the Jovo hook/plugin architecture. So these parts of the projects can be reused even if you don't care about Voice-QL.
@@ -334,7 +342,7 @@ Make sure your data is available in **SQLITE** format. For any other database fo
 
 Voice-QL will later use SQLITE metadata to create both code and the language model of the voice application.
 
-### Checkout related projects
+### Checkout, configure, install and launch related projects
 
 For information how to work/setup/use Jovo please follow the official [Jovo installation instructions](https://www.jovo.tech/docs/installation)
 
@@ -346,15 +354,15 @@ As next steps you can checkout and run the following projects:
 
   ```
   mkdir voice-ql-snips
-  git clone ...
+  git clone git@github.com:fboerncke/voice-ql-snips-nlu-server.git
   sudo docker run -p 5000:5000 snips-nlu-server
   ```
 
-- **required**: Voice-QL (this project)
+- **required**: Voice-QL (this Github project)
 
   ```
   mkdir voice-ql
-  git clone ...
+  git clone git@github.com:fboerncke/voice-ql.git
   npm install
   jovo build:platform alexa
   jovo run
@@ -372,7 +380,7 @@ As next steps you can checkout and run the following projects:
 
 - **optional**: Voice-QL-Vue-Client-Chatbot
 
-  Voice-QL comes with a ready to use webapp that can by used to *chat* with a table via written commands. This application will show the SQL statements that have been build automatically to answer the user request. The following screen shot shows you the look and feel:
+  Voice-QL comes with a ready to use webapp that can by used to _chat_ with a table via written commands. This application will show the SQL statements that have been build automatically to answer the user request. The following screen shot shows you the look and feel:
 
   [![Chatbot](./resources/screenshot-web-client.png)](https://www.bmbf.de/)
 
@@ -380,25 +388,24 @@ As next steps you can checkout and run the following projects:
 
   1. Preparation: Start **Snips NLU** and **Voice-QL** as described above. The chatbot will use them as backend.
 
-  2. Checkout, build and start the chatbot:  
+  2. Checkout, build and start the chatbot:
 
-      ```
-      mkdir voice-ql-vue-chatbot
-      git clone ...
-      npm install
-      npm run serve
-      ```
+     ```
+     mkdir voice-ql-vue-chatbot
+     git clone git@github.com:fboerncke/voice-ql-vue-chat-client.git
+     npm install
+     npm run serve
+     ```
 
   3. If you experience problems when launching and see error messsages related to SSL this may be because of a newer node version. The following environment setting should help you in that case:
 
-      ```
-      export NODE_OPTIONS=--openssl-legacy-provider
-      ```
+     ```
+     export NODE_OPTIONS=--openssl-legacy-provider
+     ```
 
-      Then run `npm run serve` again.
+     Then run `npm run serve` again.
 
-  4. Now use your local browser and navigate to the address shown in the console window, e.g.  `http://localhost:8080/` and follow the instructions on the screen.
-
+  4. Now use your local browser and navigate to the address shown in the console window, e.g. `http://localhost:8080/` and follow the instructions on the screen.
 
 - **optional**: Voice-QL-Vue-Client-Talk (work with Chrome only)
 
