@@ -1,6 +1,6 @@
 <a href= "https://prototypefund.de/project/voice-ql-datentabellen-mit-gesprochener-sprache-barrierefrei-erkunden/"><img src="./resources/assets/voice-ql-ring.png" width="40%" height="40%" align="right"></a>
 
-# Voice-QL - Talk to your Database
+# Voice-QL - Talk to your Database - Main Project
 
 ## What this project is about
 
@@ -14,15 +14,34 @@ But sometimes data itself is presented in a way which makes it inherently diffic
 
 Without knowledge of database languages like SQL or without being a master of Excel, it can be difficult to extract and understand information hidden in the data.
 
-Recognizing this challenge, the Voice-QL project has been launched to address the issue. The project aims to develop a dialog model for voice assistants that can then provide a more accessible way retrieving information from databases. The voice assistant responds to süpoken or typed voice commands, allowing users to navigate through the contents of the database without the need to touch a screen or keyboard.
+Recognizing this challenge, the Voice-QL project has been launched to address the issue. The project aims to develop a **dialog model** for voice assistants that can then provide a more accessible way retrieving information from databases. The voice assistant responds to spoken or typed voice commands, allowing users to navigate through the contents of the database without the need to touch a screen or keyboard.
 
 **In other words**: Voice-Ql is designed to address the challenge of accessing data and making it more accessible for everyone by using natural language as an interface.
 
 Not only will Voice-QL make information more accessible for individuals, but it will also give organizations and individuals who contribute information to open data a new tool to reach a wider audience.
 
+## Related projects
+
+A number of additional github repositories contain material which has been implemented, adapted and/or preconfigured to be used with or without Voice-QL. You can find more information by following these links: 
+
+- Voice-QL - Use Snips NLU as replacement for NLP.js: [github](https://github.com/fboerncke/voice-ql-snips-nlu-server
+)
+- Voice-QL - Web Client with SQL protocol display - Chat Widget: [github](https://github.com/fboerncke/voice-ql-vue-chat-client)
+
+- Voice-QL - Talking Browser Demo - Use your browser o talk with your data: [github](https://github.com/fboerncke/voice-ql-vue-talking-client)
+
+- **Model Linter**: [npm](https://www.npmjs.com/package/jovo-v4-community-hook-model-linter), [github](https://github.com/fboerncke/jovo-v4-community-hook-model-linter)
+
+- **Magic Model**: [npm](https://www.npmjs.com/package/jovo-v4-community-hook-magic-model), [github](https://github.com/fboerncke/jovo-v4-community-hook-magic-model)
+
+- **Magic Prototyper**: [npm](https://www.npmjs.com/package/jovo-v4-community-hook-magic-prototyper), [github](https://github.com/fboerncke/jovo-v4-community-hook-magic-prototyper)
+
+
 ## Overview
 
-So how does Voice-QL work? The Voice-QL project is importing data from some table given in sqlite format using it to generate input files for the Jovo Framework, which in turn generates necessary artifacts for a Voice App.
+So how does Voice-QL work? What is the main idea?
+
+The Voice-QL project is importing data from some table given in sqlite format using it to generate input files for the Jovo Framework, which in turn generates necessary artifacts for a Voice App.
 
 ```mermaid
 graph TD
