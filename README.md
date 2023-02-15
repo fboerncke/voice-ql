@@ -105,7 +105,7 @@ So what can the user do then when using such a voice app? The following example 
 - User: "_Wähle Tabelle **vornamen**_"
 - Assistant: "_Die Tabelle mit dem Namen vornamen hat 310025 Zeilen und 7 Spalten. Die Namen der Spalten lauten id, vorname, anzahl, geschlecht, position, jahr und bezirk._"
 
-In the above example we see that the system responds with a meaningful message in case some required information is missing. The system will ask for required parameters and proceeds when the necessary information is available.
+In the above example we see that the system responds with a meaningful message in case some required information is missing. The system will ask for required parameters and proceeds with the previous request when the necessary information is available.
 
 #### Conversational Context
 
@@ -369,7 +369,7 @@ As next steps you can checkout and run the following projects:
 
 - **required**: Voice-QL-Snips
 
-  Jovo comes with a preconfigured version of `NLP.js`. This comes with some limitation which we try to avoid by replacing _NLP.js_ with the _SNIPS nlu_. You can find a preconfigured instance of SNIPs as a Docker image with this project.
+  Jovo comes with a preconfigured version of `NLP.js`. This comes with some limitation which we try to avoid by replacing _NLP.js_ with _SNIPS nlu_. You can find a preconfigured instance of `SNIPs` as a Docker image with this project. Please note that some of the example dialogues shown above may not work with Snips but e.g. with Alexa as both systems use different engines in the background. 
 
   ```
   mkdir voice-ql-snips
