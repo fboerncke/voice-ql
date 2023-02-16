@@ -92,17 +92,13 @@
       "de": [
         "Hilfe",
         "Wähle tabelle Vornamen",
-        "Wähle empty",
         "wähle zeilen mit vorname gleich frank",
         "SELECT stern WHERE SPALTE Vorname gleich frank",
         "SELECT stern FROM vornamen WHERE SPALTE Vorname gleich frank",
-        "was ist der größte wert in spalte anzahl",
+        "wieviel zeilen hast Du",
         "aktuelle zeile",
         "nächste zeile",
-        "vorherige zeile",
-        "letzte zeile",
         "Metadata",
-        "wieviel zeilen",
         "status"
       ],
       "en": ["Help", "Restart", "Test"]
@@ -119,44 +115,6 @@
     "myTest": {
       "de": "hallo",
       "en": "hello"
-    },
-    "myPayArray": {
-      "de": [
-        "Die Rechnung bitte",
-        "Herr Ober [Ich [will|möchte] [|jetzt] [|bitte|gerne]] zahlen mit {paymentType}"
-      ],
-      "en": ["[|The] bill please", "I [|want to] pay with {paymentType}"]
-    },
-    "PaymentTypeArray": {
-      "de": [
-        "bar",
-        "master",
-        "bar",
-        "amex",
-        "",
-        null,
-        "scheck",
-        "paypal",
-        "bitcoin",
-        {
-          "value": "Visa",
-          "id": "visa",
-          "synonyms": ["Visa", "Visa", "${myTest}", "Visa Karte", "Meine Visa Karte"]
-        }
-      ],
-      "en": [
-        "cash",
-        "master",
-        "amex",
-        "cheque",
-        "paypal",
-        "bitcoin",
-        {
-          "value": "Visa",
-          "id": "visa",
-          "synonyms": ["Visa", "Visa Card", "My Visa Card"]
-        }
-      ]
     },
     "someKeyInternational": "for all locales",
     "TableNameList": "${TableNameList}"
@@ -187,15 +145,7 @@
           ]
         },
         "startQuickReplies": {
-          "de": [
-            "Hilfe",
-            "wie viele zeilen",
-            "wähle tabelle vornamen",
-            "wähle empty",
-            "wähle obstkorb",
-            "wie heißen die tabellen",
-            "metadata"
-          ],
+          "de": ["Hilfe", "wie heißen die tabellen", "wähle tabelle vornamen"],
           "en": ["help", "metadata"]
         }
       },
