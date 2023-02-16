@@ -22,10 +22,9 @@ Not only will Voice-QL make information more accessible for individuals, but it 
 
 ## Related projects
 
-A number of additional github repositories contain material which has been implemented, adapted and/or preconfigured to be used with or without Voice-QL. You can find more information by following these links: 
+A number of additional github repositories contain material which has been implemented, adapted and/or preconfigured to be used with or without Voice-QL. You can find more information by following these links:
 
-- Voice-QL - Use Snips NLU as replacement for NLP.js: [github](https://github.com/fboerncke/voice-ql-snips-nlu-server
-)
+- Voice-QL - Use Snips NLU as replacement for NLP.js: [github](https://github.com/fboerncke/voice-ql-snips-nlu-server)
 - Voice-QL - Web Client with SQL protocol display - Chat Widget: [github](https://github.com/fboerncke/voice-ql-vue-chat-client)
 
 - Voice-QL - Talking Browser Demo - Use your browser o talk with your data: [github](https://github.com/fboerncke/voice-ql-vue-talking-client)
@@ -35,7 +34,6 @@ A number of additional github repositories contain material which has been imple
 - **Magic Model**: [npm](https://www.npmjs.com/package/jovo-v4-community-hook-magic-model), [github](https://github.com/fboerncke/jovo-v4-community-hook-magic-model)
 
 - **Magic Prototyper**: [npm](https://www.npmjs.com/package/jovo-v4-community-hook-magic-prototyper), [github](https://github.com/fboerncke/jovo-v4-community-hook-magic-prototyper)
-
 
 ## Overview
 
@@ -92,7 +90,9 @@ Built on top of the [Jovo framework](https://jovo.tech) we can use Jovo to gener
 
 ### Example Dialog
 
-So what can the user do then when using such a voice app? The following example dialog shows what is possible right now:
+So what can the user do then when using such a voice app? The following example dialog shows what is possible right now.
+
+Please note that depending on the final platform some examples may return different results. If you have a decision which platform you plan to support you will likely need to finetune your prototype to find the results you expect:
 
 #### Support and guidance the user when information is missing
 
@@ -127,7 +127,7 @@ The system is doing it's best to understand the intent of the user and build a m
 
 The system assumes that the request refers to the table that has been chosen in an earlier request.
 
-- User: "_Welchen Namen haben die Spalten?_"
+- User: "_Welche Namen haben die Spalten?_"
 - Assistant: "_Die Namen der Spalten von der Tabelle 'Vornamen' lauten ID, Vorname, Anzahl, Geschlecht, Position, Jahr und Bezirk_"
 
 Another example:
@@ -137,8 +137,8 @@ Another example:
 
 Finally:
 
-- User: "_Welchen Namen hat Spalte 3?_"
-- Assistant: "_Der Name der Spalte 3 von Tabelle Vornamen ist 'Anzahl'_"
+- User: "_Welchen Namen hat Spalte drei?_"
+- Assistant: "_Der Name der Spalte drei von Tabelle Vornamen ist 'Anzahl'_"
 
 #### Asking for column content
 
@@ -369,7 +369,7 @@ As next steps you can checkout and run the following projects:
 
 - **required**: Voice-QL-Snips
 
-  Jovo comes with a preconfigured version of `NLP.js`. This comes with some limitation which we try to avoid by replacing _NLP.js_ with _SNIPS nlu_. You can find a preconfigured instance of `SNIPs` as a Docker image with this project. Please note that some of the example dialogues shown above may not work with Snips but e.g. with Alexa as both systems use different engines in the background. 
+  Jovo comes with a preconfigured version of `NLP.js`. This comes with some limitation which we try to avoid by replacing _NLP.js_ with _SNIPS nlu_. You can find a preconfigured instance of `SNIPs` as a Docker image with this project. Please note that some of the example dialogues shown above may not work with Snips but e.g. with Alexa as both systems use different engines in the background.
 
   ```
   mkdir voice-ql-snips
@@ -438,9 +438,15 @@ You might experience problems in the following cases:
 - Voice-QL is prepared to create SlotType definitions for you based on the column values in the table. In case you have too many different values your language model might "explode". Different platforms have their limitations regarding the complexity of the model. So if you have a list of 100000 Names in your database then this is not the approach you are looking for.
 - Features like formulas within tables are not supported yet. You will experience best results with tables containing strings and numerical data.
 
-If you run into problems any of the above happens it may be necessary to rename metadata or define a subset which makes sense.
+If you run into any such problems it may be necessary to rename metadata or define a subset which makes sense.
 
 So for the framework to work with your use case it may be necessary to simplify raw data first.
+
+## Going from prototyping to production
+
+Voice-QL is intended to generate prototype apps which can be used to demonstrate a proof of concept. The prototype will also help you to detect in an early stage of your project whether the data quality in your table is good enough to be used for a voice app. If for example column names turn out to have unpronouncable names you will have to rename them before you proceed.
+
+The generated component code can be used to add additional functionality. But note that as you start to implement changes within the generated code you have to deactivate the `MagicPrototyper` hook. Otherwise you will overwrite changes during your next build.
 
 ## Out of focus
 
