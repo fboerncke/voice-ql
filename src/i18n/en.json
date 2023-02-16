@@ -342,27 +342,6 @@
     "someKey1": "welcome1",
     "someKey2": "welcome2",
     "myTest": "hello",
-    "myPayArray": [
-      "[|The] bill please",
-      "I [|want to] pay with {paymentType}"
-    ],
-    "PaymentTypeArray": [
-      "cash",
-      "master",
-      "amex",
-      "cheque",
-      "paypal",
-      "bitcoin",
-      {
-        "value": "Visa",
-        "id": "visa",
-        "synonyms": [
-          "Visa",
-          "Visa Card",
-          "My Visa Card"
-        ]
-      }
-    ],
     "someKeyInternational": "for all locales",
     "TableNameList": [
       "vornamen",
