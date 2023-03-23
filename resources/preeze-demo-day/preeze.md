@@ -1,258 +1,272 @@
 ---
 marp: true
 theme: gaia
-_class: lead
+size: 16:9
 paginate: true
-backgroundColor: #f00
-backgroundImage: url('https://marp.app/assets/hero-background.svg')
 math: mathjax
-
 ---
 
-# **Voice QL**
+# <div style='position:absolute;top:40px;left:40px;font-size: 100px;'>**Voice**</div>
 
-Talk to your Database
+# <div style='position:absolute;top:0px;left:940px;font-size: 240px;'>**QL**</div>
 
-Build SQL statements from natural language requests
 
-<!-- 
-footer: "Voice QL - Frank Börncke - www.boerncke.de"
+![ bg](./images/wordcloud.png)
+
+<!--
+footer: "<sub><sub><sub>Voice-QL - Talk to your Database - Frank Börncke - www.boerncke.de</sub></sub></sub>"
 -->
 
 ---
 
-# How it works 
+## <center>Worum geht es?</center>
 
-![bg left:45% 70%](./images/voice-ql-big-picture.png)
+<center>
 
-- Choose table in SQLite format 
-- Initiate **Voice QL** generator
-- Use created code artifacts for ...
-   - ... NLP Webservices
-   - ... Web based dialog system
-   - ... Alexa Skill
-   - ... Google Assistant action
-   - ... other Jovo output formats
+$$\\[20pt]$$
 
----
+*„Voice-QL ermöglicht die Kommunikation mit einer Tabelle oder Datenbank in natürlicher Sprache.“*
 
-# Architecture
+</center>
 
-![bg left:30%](./images/voice-ql-detailled-picture.png)
-
-- The **grey** elements existed already.
-
-- The elements marked **yellow** have been implemented while building **Voice QL**
-
+<!-- backgroundImage: "linear-gradient(to bottom, #EFEFEF, #FFFFFF)" -->
 
 ---
 
-# Voice App builds SQL from utterances
+## <center>Hintergrund</center>
 
-Voice QL is about talking to your database. Say something like:
+$$\\[3pt]$$
 
-- "*Wieviele Zeilen hast Du?* "
-- "*Wieviele Zeilen hat die aktuelle Tabelle?* "
-- "*SELECT count STERNCHEN FROM SOME_TABLE*"
-- "*Anzahl Zeilen!*"
+- Frank Börncke
 
-       ==> SELECT count(*) FROM SOME_TABLE
+- Sprachverarbeitung und NLP (neudeutsch *„Voice“* )
 
----
+- Systeme, die mit natürlicher Sprache bedient werden
 
-# How does this work?
+$$\\[0pt]$$
 
-**Voice models** are trained based on sentence lists. Such lists tend to be **very long** and are **difficult to maintain** if they grow over time.
+- Kein Bildschirm, keine Tastatur, keine Maus, kein Touch
 
-    [
-      "Wieviele Zeilen hast Du?",
-      "Wieviele Zeilen hat die aktuelle Tabelle",
-      "select count sternchen from some_table",
-      "Anzahl Zeilen",
-      ... many other 10/100/1000 sample utterances ... 
-    ]
-
-
-This approach is still **state of the art** with many platforms.
+- Für viele Menschen ist das Alltag
 
 ---
 
-# Tools simplify Voice Model creation
+## <center>Warum mache ich das?</center>
 
-**Voice QL** comes with a tool to make this much easier. 
+<center>
 
-**Spintax**: Sentence lists are generated based on a compact description using a regular expression like language / syntax. 
+$$\\[3pt]$$
 
-**Example**: The SQL `SORT` action is triggered by 24 sentences based on one Spintax expression:
+Brücken bauen und Barrieren aus dem Weg räumen macht Spaß
 
-    "[Ordne|Sort|Sortiere] nach [|Spalte|Eigenschaft|column] {columnName} [|{sortOrder}]"
+$$\\[3pt]$$
 
---- 
+Die Idee hatte ich schon länger in der Schublade
 
-# Spintax is maintainable and powerful
+$$\\[3pt]$$
 
-Most complex action is the SQL `SELECT` statement implementation:
-
-The Spintax approach scales: with six lines of Spintax expressions **Voice QL** auto creates 3000+ sample utterances for the voice model:
- 
-    "{selectSynonym} [|alle|die] {rowSynonym} [| [FROM|von der Tabelle] {tableName} ] [WHERE|wo|bei denen] [|Spalte|der Wert [| von Spalte ] ]  {compareColumnName} {comparator} [|der Wert|dem Wert|mit dem Wert] [{integerNumber}|{someString}] ist ",
-
-    "{selectSynonym} [|alle|die] {rowSynonym} [| [FROM|von der Tabelle] {tableName} ] mit [|einem Wert von|dem Wert]   [|Spalte] {compareColumnName} {comparator} [|der Wert|dem Wert|mit dem Wert] [{integerNumber}|{someString}]",
-
-    "{selectSynonym} {filterColumnName} [| [FROM|von der Tabelle] {tableName} ] [WHERE|wo|bei denen] [|Spalte|der Wert [| von Spalte] ] {compareColumnName} {comparator} [|der Wert|dem Wert|mit dem Wert] [{integerNumber}|{someString}] ist ",
-
-    "{selectSynonym} {filterColumnName} [| [FROM|von der Tabelle] {tableName} ] mit [|einem Wert von|dem Wert]   [|Spalte] {compareColumnName} {comparator} [|der Wert|dem Wert|mit dem Wert] [{integerNumber}|{someString}]",
-
-    "{selectSynonym} [stern|sternchen|STAR] [| [FROM|von der Tabelle] {tableName} ] [WHERE|wo|bei denen] [|Spalte|der Wert [| von Spalte ] ] {compareColumnName} {comparator} [|der Wert|dem Wert|mit dem Wert] [{integerNumber}|{someString}] ist ",
-
-    "{selectSynonym} [stern|sternchen|STAR] [| [FROM|von der Tabelle] {tableName} ] mit [|einem Wert von|dem Wert]   [|Spalte] {compareColumnName} {comparator} [|der Wert|dem Wert|mit dem Wert] [{integerNumber}|{someString}]"
-
-Without the Spintax approach **Voice QL** would not be maintainable.
+Mit der Unterstützung vom Prototype Fund hatte ich die Möglichkeit, mich nun länger diesem Thema zu widmen.
+</center>
 
 ---
 
-# Metadata is part of Voice Model
+## <center>Tabellen erscheinen einfach</center>
 
-Voice QL makes sure that metadata like **table names** and **column names** automatically become **part of the voice model**. So you can ask for columns contents just by using column names.
+Tabellen sind ein **einfach** zu verstehendes Konzept:
 
-"*Wähle Zeilen der Tabelle Vornamen mit Anzahl gleich 100*"
+   - Zeilen
+   - Spalten
+   - Zellen
 
-    SELECT * FROM vornamen WHERE anzahl = 100 LIMIT 1,1
+Wir alle nutzen Tabellen: Datenbanken, Open/Libre Office, Excel
 
-This will not work for column names like `HELP`or `STOP` or `X16QS`.
-
----
-
-# Support for Metadata
-
-Say something like:
-
-- "*Wie viele Zeilen hast Du?*"
-- "*Wie viele Spalten hat die Tabelle?* "
-- "*Wie heissen die Spalten?*"
-- "*Wie heisst Spalte 3?*"
----
-
-# Support for non trivial queries
-
-Say something like:
-
-- "*Was ist der größte Wert in der Spalte Einwohnerzahl?* "
-- "*Filtere Zeilen mit Einwohnerzahl größer als 100.000* "
-- "*Sortiere nach Spalte Einwohnerzahl absteigend.*"
+Auch **Open Data** verwendet Tabellen. Einheitliche Standardformate existieren nicht. Das erschwert Navigation und Orientierung.
 
 ---
 
-# Access contents of a table 
+## <center>Tabellen sind kompliziert
+</center>
 
-Challenge: How to present (maybe very) long result lists using voice?
+<center>
 
-We read the **first line of a result set** by default.
+$$\\[10pt]$$
 
-Other content is read aloud row by row on request.
+Tabellen versprechen **Struktur und Ordnung**
 
-Say something like:
+$$\\[10pt]$$
 
-- "*Was steht in Zeile 1234?*"
-- "*Was steht in der aktuellen Zeile?*"
-
----
-
-# Navigate in/between tables via voice
-
-Say something like:
-
-- "*Gehe in die erste Zeile*"
-- "*Gehe in die letzte Zeile*"
-- "*Eine Zeile weiter*"
-- "*Eine Zeile zurück*"
-- "*Wechsle zur Tabelle Ersatzteilliste*"
+Aber was wir vorfinden, ist häufig ein **komplexes Durcheinander**
+</center>
 
 ---
 
-# Conversational context support
+## <center>Warum ist das so?</center>
 
-Say something like:
+<center>
 
-- "*Wähle Tabelle Vornamen*"
-- "*Wieviel Zeilen hat diese Tabelle*" (refers to table **Vornamen**)
-- "*Wähle Tabelle Nachnamen*"
-- "*Wieviel Zeilen hat diese Tabelle*" (refers to table **Nachnamen**)
+$$\\[3pt]$$
 
----
+Es ist **leicht**, Daten in Tabellen zu gießen
 
-# Collects missing information
+$$\\[3pt]$$
 
-**Voice QL** does its best to keep the dialog running instead of reporting error messages:
+Es ist **schwer**, Informationen aus Tabellen zu extrahieren
 
-- "*Wie viele Zeilen hat die aktuelle Tabelle?*"
+$$\\[3pt]$$
 
-- Antwort: "*Du hast noch keine Tabelle ausgewählt. Es gibt die Tabellen mit den Namen  'Vornamen' oder 'Nachnamen'* "
-
-- "*Wähle Tabelle Nachnamen*"
-
-- Answer: "*Die aktuelle Tabelle  hat 357.000 Einträge.*"
+Wird das zu einer **Einbahnstraße**, dann schaffen wir **Datenfriedhöfe**
+</center>
 
 ---
 
-# Tools built around Voice QL
+## <center>Ursachen</center>
 
-A number of Jovo tools / plugins have been created while implementing **Voice QL**:
+$$\\[5pt]$$
 
-- **Jovo** Plugins:
-  - Model Linter (published)
-  - Magic Model (published)
-  - Magic Prototyper (work in progress)
+<center>
 
-- **Chatbot** web application shows auto generated SQL statements
+Tabellen sind eben **kein** einfach zu verstehendes Konzept
 
----
+Inhalte oft umfangreich (Ergebnisse leider auch)
 
-# Chatbot
+Uneinheitlicher Formate / Strukturen (siehe **Open Data**)
 
-A web application allows to chat with databases and shows the created SQL statements  on the fly. 
-
-![bg left 98%](./images/screenshot-web-client.png)
+Nicht jeder beherrscht Excel oder Abfragesprachen wie SQL
+</center>
 
 ---
 
-#  
+## <center>Wo führt das alles hin?</center>
 
-![bg ](./images/screenshot-web-client.png)
+$$\\[1pt]$$
+
+<center>
+
+Tabellen sind implizit barrierebehaftet!
+
+Bei technischen Neuentwicklungen werden Fragen der Zugänglichkeit oft nicht berücksichtigt oder mitgedacht. 
+
+Wo das passiert, da kann Fortschritt zur Ausgrenzung führen. 
+
+Dagegen müssen wir was tun!</center>
 
 ---
 
-# Multi locale support built-in
+## <center>Voice-QL: sprich mit Deiner Datenbank</center>
 
-Though not in the focus of the project all components developed for **Voice QL** are prepared to work for multiple locales/languages.
+Können wir mit einem Sprach-Assistenten über eine Tabelle reden?
 
-The demo implementation works for German of course but the configuration includes basic settings for English already. 
+    "Was ist der größte Wert in der Spalte Einwohnerzahl?"
 
-If target platforms support languages like "*French*", "*Spanish*", "*Italian*" then this will work with **Voice QL**.
+Können wir sogar direkt mit einer Tabelle sprechen?
+
+    "Wie heißen Deine Spaltennamen?"
+    "Erzähle mir was über Dich!"
+
+Darum geht es bei Voice-QL.
+
+---
+
+## <center>Herausforderungen an das System</center>
+
+$$\\[10pt]$$
+
+<center>
+Intention des Nutzers erkennen
+
+$$\\[7pt]$$
+
+Passende Information aus der Datenbank holen
+
+$$\\[7pt]$$
+
+Ergebnisse mit Sprache präsentieren
+</center>
+
+---
+
+## <center>Intention des Nutzers erkennen</center>
+
+- Was interessiert den Anwender? `"Summe berechnen"`
+
+- Auf welche(n) Tabelle / Zeile / Spalte / Bereich bezieht er sich?
+  `"Zeige mir die Summe der Werte aus der Spalte Verkauf"`
+
+- Ist ein Filter definiert?
+  `"Mich interessieren nur Daten aus dem Jahr 2018"`
+
+Ein **Context** merkt sich frühere Entscheidungen des Benutzers. 
+
+**Fehlertoleranz**: Informationen werden im **Dialog** eingesammelt. 
 
 
 ---
 
-# Jovo Team
+## <center>Datenbankabfrage  (SQL)</center>
 
-All **Voice QL** tools can be reused for other voice apps.
+Datenbank-Zugriff sollte trivial sein. Aber die reale Welt ist gemein:
 
-The Jovo Team said "*Thank You*" for my contributions that have been created while implementing **Voice QL** 🙂
+- Schreibweisen: `Zwölf`, `zwoelf` vs. `12`
 
-![bg left fit](./images/jovo-communitiy-member-of-the-month.png)
+- Verschiedene Begriffe klingen gleich: `Ja` vs. `Jahr`
 
----
+- Kryptische Spaltennamen: `X19Q3`
 
-# Needs to be done
-
-- Refine the dialogues used in Voice QL
-- Publish homepage which is still work in progress
-- Add documentation
-- Prepare all the code in a way that makes it work more or less out of the box (Docker image?)
-- Out of scope: SQL `JOIN` or `GROUP BY` constructs?
+- Datenqualität: `<div style = 'color:green;'>grün</div>` (Markup)
 
 ---
 
-# Thank you!
+## <center>Ergebnisse vorlesen</center>
 
-## Any questions or remarks?
+- Ergebnisse können (sehr) lang und umfangreich sein. 
+  Einfach alles vorlesen ist nicht praktikabel.
+
+- Lösung: **Cursorkonzept** mit Sprachnavigation
+  `"Lies die aktuelle Zeile"`
+  `"Gehe in die erste / letzte / nächste ... Zeile"`
+
+$$\\[1pt]$$
+
+- Inhalte wie&nbsp;  `true, false, null, #nbsp;, "", ...` machen Arbeit
+
+---
+
+## <center>Voice-QL</center>
+
+1. Metadaten & DB auswerten
+2. Code generieren:
+  - trainierbare Sprachmodelle
+  - Voice-App-Prototypen:
+    - Voice-Applikationen
+    - Webanwendung
+    - Chatbot
+
+![w:530 bg right](./images/flow.svg)
+
+---
+
+## <center>Ausblick - Ist das die Zukunft?</center>
+
+Für jede Tabelle eine eigene Anwendung? Sicher nicht.
+
+- **Multimodalität**: klassische UI mit ergänzendem Sprachassistent
+
+Voraussetzung:
+
+- Inhalte **barrierearm** aufbereiten: Struktur und Datenqualität
+
+- Von Anfang an die **Tools** des Nutzers mitdenken
+
+Wenn das gelingt, kann jeder Nutzer von Voice-QL profitieren.
+
+---
+
+## <center>Fragen und Antworten</center>
+
+<center>
+
+![w:900 ](./images/wordcloud.png)
+
+</center>
+
+<!-- _backgroundColor: white -->
