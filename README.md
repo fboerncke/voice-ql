@@ -27,7 +27,7 @@ A number of additional github repositories contain material which has been imple
 - Voice-QL - Use Snips NLU as replacement for NLP.js: [github](https://github.com/fboerncke/voice-ql-snips-nlu-server)
 - Voice-QL - Web Client with SQL protocol display - Chat Widget: [github](https://github.com/fboerncke/voice-ql-vue-chat-client)
 
-- Voice-QL - Talking Browser Demo - Use your browser o talk with your data: [github](https://github.com/fboerncke/voice-ql-vue-talking-client)
+- Voice-QL - Talking Browser Demo - Use your browser to talk with your data: [github](https://github.com/fboerncke/voice-ql-vue-talking-client)
 
 - **Model Linter**: [npm](https://www.npmjs.com/package/jovo-v4-community-hook-model-linter), [github](https://github.com/fboerncke/jovo-v4-community-hook-model-linter)
 
